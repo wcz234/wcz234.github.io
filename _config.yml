@@ -103,6 +103,6 @@ theme: butterfly
 deploy:
   type: git
   repo: https://github.com/wcz234/xpyqj_blog.github.io.git
-  branch: main
+  branch: hexo-blog
   name: wcz234
   email: wcz234@users.noreply.github.com
