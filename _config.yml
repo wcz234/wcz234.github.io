@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: wcz234的博客
-subtitle: 记录成长的每一个瞬间
+title: 心平愈千疾的博客
+subtitle: 我观观音观自在 我见真武见真我
 description: 分享技术心得，记录学习历程
-keywords: 技术,编程,博客,学习,成长
+keywords: 技术,学习,生活
 author: wcz234
 language: zh-CN
 timezone: Asia/Shanghai
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: xpyqj_blog.github.io
+url: https://wcz234.github.io
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -102,7 +102,7 @@ theme: butterfly
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://github.com/wcz234/xpyqj_blog.github.io.git
-  branch: hexo-blog
+  repo: git@github.com:wcz234/xpyqj_blog.github.io.git
+  branch: main
   name: wcz234
-  email: wcz234@users.noreply.github.com
+  email: 2574070432@qq.com
