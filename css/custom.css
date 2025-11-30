@@ -1,0 +1,1029 @@
+/*
+ * Winter Zen - 冬日书斋主题
+ * 极简、沉浸、东方文学质感
+ * 核心隐喻：冬日雪夜的窗边，静谧、清冷但有温度
+ */
+
+/* ===== Google Fonts 导入 ===== */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+/* ===== CSS变量定义 ===== */
+:root {
+  /* 背景色 - V2.0径向渐变 */
+  --wz-bg-center: #334155;
+  --wz-bg-edge: #0f172a;
+  
+  /* 卡片/容器色 - V2.0半透明 */
+  --wz-surface: rgba(253, 253, 253, 0.92);
+  --wz-surface-solid: #fdfdfd;
+  --wz-surface-hover: rgba(255, 255, 255, 0.95);
+  
+  /* 文字色 */
+  --wz-text-title: #334155;
+  --wz-text-body: #475569;
+  --wz-text-muted: #94a3b8;
+  
+  /* 强调色 */
+  --wz-accent-red: #b91c1c;
+  --wz-accent-green: #10b981;
+  
+  /* 边框色 */
+  --wz-border: #e2e8f0;
+  --wz-border-inner: #e2e8f0;
+  
+  /* 字体 */
+  --wz-font-cn: 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', serif;
+  --wz-font-en: 'Playfair Display', 'Times New Roman', serif;
+  
+  /* 动效 */
+  --wz-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --wz-duration: 0.5s;
+  --wz-duration-long: 1.2s;
+  
+  /* 阴影 */
+  --wz-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.5);
+  --wz-shadow-hover: 0 25px 60px -10px rgba(0, 0, 0, 0.6);
+}
+
+/* ===== 全局背景 - V2.0径向渐变模拟月光 ===== */
+body {
+  background: radial-gradient(circle at 50% 20%, var(--wz-bg-center) 0%, var(--wz-bg-edge) 100%) !important;
+  background-attachment: fixed !important;
+  min-height: 100vh;
+}
+
+#web_bg {
+  display: none !important;
+}
+
+/* ===== 全局字体强制 ===== */
+body,
+.container,
+#content-inner,
+.recent-post-item,
+.card-widget,
+#article-container,
+#post,
+#page,
+.author-info,
+.aside-content,
+#sidebar {
+  font-family: var(--wz-font-cn) !important;
+  letter-spacing: 0.05em;
+}
+
+h1, h2, h3, h4, h5, h6,
+.post-title,
+.article-title,
+#site-title {
+  font-family: var(--wz-font-cn) !important;
+  font-weight: 600;
+  color: var(--wz-text-title);
+}
+
+/* 英文装饰性文字 */
+.post-meta-date,
+time,
+.relativeDate,
+.copyright-info,
+.post-count {
+  font-family: var(--wz-font-en) !important;
+}
+
+/* ===== 导航栏 ===== */
+#nav {
+  background: transparent !important;
+  backdrop-filter: none;
+  transition: all var(--wz-duration) var(--wz-ease);
+}
+
+#nav.fixed {
+  background: rgba(30, 41, 59, 0.8) !important;
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+#nav a,
+#nav .site-name {
+  font-family: var(--wz-font-cn) !important;
+  color: var(--wz-surface) !important;
+  transition: color var(--wz-duration) var(--wz-ease);
+}
+
+#nav.fixed a,
+#nav.fixed .site-name {
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* 导航菜单hover效果 - 下划线从中心展开 */
+#nav .menus_item {
+  position: relative;
+}
+
+#nav .menus_item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 1px;
+  background: var(--wz-accent-red);
+  transition: all var(--wz-duration) var(--wz-ease);
+  transform: translateX(-50%);
+}
+
+#nav .menus_item:hover::after {
+  width: 80%;
+}
+
+/* ===== 页面头部 ===== */
+#page-header {
+  background: transparent !important;
+}
+
+#page-header::before {
+  display: none !important;
+}
+
+#site-title,
+#site-subtitle {
+  font-family: var(--wz-font-cn) !important;
+  color: var(--wz-surface) !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+#site-subtitle {
+  letter-spacing: 0.1em;
+}
+
+/* ===== 页脚透明 ===== */
+#footer {
+  background: transparent !important;
+  color: var(--wz-text-muted) !important;
+}
+
+#footer a {
+  color: var(--wz-surface) !important;
+}
+
+/* ===== 卡片通用样式 - 高级棉纸质感 ===== */
+#content-inner,
+.recent-post-item,
+.card-widget,
+#post,
+#page,
+.flink-list-card {
+  background: rgba(253, 253, 253, 0.98) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 2px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  position: relative;
+  transition: all var(--wz-duration) var(--wz-ease);
+}
+
+/* 内层装饰边框 - V2.0更隐约 */
+#content-inner::before,
+.recent-post-item::before,
+.card-widget::before,
+#post::before,
+#page::before {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ===== 文章卡片 ===== */
+.recent-post-item {
+  overflow: hidden;
+  margin-bottom: 24px !important;
+}
+
+.recent-post-item::before {
+  top: 16px;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+}
+
+/* 卡片hover效果 */
+.recent-post-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--wz-shadow-hover);
+}
+
+.recent-post-item:hover .post-title {
+  color: var(--wz-accent-red) !important;
+}
+
+/* 封面图 - 降低饱和度，hover恢复 */
+.recent-post-item .post-bg {
+  filter: saturate(0.7);
+  transition: filter var(--wz-duration) var(--wz-ease);
+}
+
+.recent-post-item:hover .post-bg {
+  filter: saturate(1);
+}
+
+/* 文章标题 - V2.0增加字间距 */
+.recent-post-item .post-title,
+.article-title,
+#article-container h1,
+#article-container h2 {
+  font-family: var(--wz-font-cn) !important;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--wz-text-title) !important;
+  letter-spacing: 2px;
+  transition: color var(--wz-duration) var(--wz-ease);
+}
+
+/* V2.0 标题装饰短横线 */
+.article-title::after {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 2px;
+  background: var(--wz-accent-red);
+  margin: 12px auto 0;
+}
+
+/* 文章摘要 */
+.recent-post-item .content {
+  font-family: var(--wz-font-cn) !important;
+  color: var(--wz-text-body);
+  line-height: 1.8;
+  text-align: center;
+}
+
+/* 日期装饰性放大 */
+.recent-post-item .post-meta-date {
+  font-family: var(--wz-font-en) !important;
+  font-size: 1.1rem;
+  color: var(--wz-text-muted);
+  letter-spacing: 0.08em;
+}
+
+/* ===== 侧边栏 ===== */
+#aside-content .card-widget {
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+#aside-content .card-widget::before {
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+}
+
+/* 头像 - 静态圆形 + 朱砂红双线边框 */
+#aside-content .avatar-img {
+  border: 3px double var(--wz-accent-red) !important;
+  border-radius: 50% !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform var(--wz-duration) var(--wz-ease), box-shadow var(--wz-duration) var(--wz-ease);
+  animation: none !important;
+}
+
+#aside-content .avatar-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* 禁用所有头像相关动画 */
+.avatar-img,
+#aside-content .avatar-img,
+.card-info .avatar-img {
+  animation: none !important;
+  -webkit-animation: none !important;
+}
+
+/* 覆盖主题默认的吃豆人/旋转动画 */
+@keyframes avatar_turn_around {
+  0%, 100% { transform: none; }
+}
+
+.card-info .avatar-img.rotate {
+  animation: none !important;
+}
+
+/* 侧边栏标题 */
+#aside-content .item-headline {
+  font-family: var(--wz-font-cn) !important;
+  color: var(--wz-text-title);
+  border-bottom: 1px solid var(--wz-border);
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+}
+
+/* V2.0 侧边栏图标颜色统一为低饱和度金灰色 */
+#aside-content .item-headline i,
+#aside-content .card-category-list i,
+#aside-content .card-tag-cloud i,
+#aside-content .card-archives i,
+.card-widget i:not(.fa-github):not(.fa-envelope),
+#aside-content .fa,
+#aside-content .fas,
+#aside-content .far,
+#aside-content .fab {
+  color: #9ca3af !important;
+}
+
+/* 保留朱砂红作为重点强调 */
+#aside-content .card-widget a:hover i,
+#aside-content .item-headline i.fa-fire,
+#aside-content .item-headline i.fa-heart {
+  color: var(--wz-accent-red) !important;
+}
+
+/* 作者描述 - 竖排文字 */
+#aside-content .author-info__description {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-family: var(--wz-font-cn) !important;
+  color: var(--wz-text-body);
+  line-height: 2;
+  letter-spacing: 0.15em;
+  margin: 20px auto;
+  max-height: 200px;
+}
+
+/* ===== 标签云 ===== */
+#aside-content .card-tag-cloud a {
+  font-family: var(--wz-font-cn) !important;
+  background: transparent !important;
+  border: 1px solid var(--wz-border) !important;
+  color: var(--wz-text-body) !important;
+  border-radius: 2px !important;
+  transition: all var(--wz-duration) var(--wz-ease);
+}
+
+#aside-content .card-tag-cloud a:hover {
+  background: var(--wz-accent-red) !important;
+  border-color: var(--wz-accent-red) !important;
+  color: var(--wz-surface) !important;
+}
+
+/* ===== 文章详情页 ===== */
+#article-container {
+  font-family: var(--wz-font-cn) !important;
+  color: var(--wz-text-body);
+  font-size: 17px;
+  line-height: 2;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 60px;
+}
+
+#article-container h1,
+#article-container h2,
+#article-container h3,
+#article-container h4 {
+  color: var(--wz-text-title);
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+#article-container p {
+  margin-bottom: 1.5em;
+  text-align: justify;
+}
+
+#article-container a {
+  color: var(--wz-accent-red);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--wz-duration) var(--wz-ease);
+}
+
+#article-container a:hover {
+  border-bottom-color: var(--wz-accent-red);
+}
+
+/* 引用块 */
+#article-container blockquote {
+  background: rgba(185, 28, 28, 0.05);
+  border-left: 3px solid var(--wz-accent-red);
+  padding: 1em 1.5em;
+  margin: 1.5em 0;
+  font-style: italic;
+  color: var(--wz-text-body);
+}
+
+/* ===== 代码块 - 极简浅色 ===== */
+#article-container pre,
+#article-container code {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+}
+
+#article-container code {
+  background: #f1f5f9;
+  color: var(--wz-accent-red);
+  padding: 2px 6px;
+  border-radius: 2px;
+  font-size: 0.9em;
+}
+
+#article-container pre {
+  background: #f8fafc !important;
+  border: 1px solid var(--wz-border);
+  border-radius: 2px;
+  padding: 1.5em;
+}
+
+#article-container pre code {
+  background: transparent;
+  color: var(--wz-text-body);
+  padding: 0;
+}
+
+figure.highlight {
+  background: #f8fafc !important;
+  border: 1px solid var(--wz-border) !important;
+  border-radius: 2px !important;
+  box-shadow: none !important;
+}
+
+.highlight-tools {
+  background: #f1f5f9 !important;
+  border-bottom: 1px solid var(--wz-border);
+}
+
+/* ===== 全局入场动画 ===== */
+@keyframes wz-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.recent-post-item,
+.card-widget,
+#post,
+#page {
+  animation: wz-fade-up var(--wz-duration-long) var(--wz-ease) both;
+}
+
+.recent-post-item:nth-child(1) { animation-delay: 0.1s; }
+.recent-post-item:nth-child(2) { animation-delay: 0.2s; }
+.recent-post-item:nth-child(3) { animation-delay: 0.3s; }
+.recent-post-item:nth-child(4) { animation-delay: 0.4s; }
+.recent-post-item:nth-child(5) { animation-delay: 0.5s; }
+
+#aside-content .card-widget:nth-child(1) { animation-delay: 0.15s; }
+#aside-content .card-widget:nth-child(2) { animation-delay: 0.25s; }
+#aside-content .card-widget:nth-child(3) { animation-delay: 0.35s; }
+#aside-content .card-widget:nth-child(4) { animation-delay: 0.45s; }
+
+/* ===== 分页器 ===== */
+#pagination .page-number {
+  font-family: var(--wz-font-en) !important;
+  background: var(--wz-surface);
+  color: var(--wz-text-body);
+  border: 1px solid var(--wz-border);
+  border-radius: 2px;
+  transition: all var(--wz-duration) var(--wz-ease);
+}
+
+#pagination .page-number:hover,
+#pagination .page-number.current {
+  background: var(--wz-accent-red);
+  border-color: var(--wz-accent-red);
+  color: var(--wz-surface);
+}
+
+/* ===== 归档/分类/标签页 ===== */
+.category-list,
+.tag-list,
+.archive-list {
+  font-family: var(--wz-font-cn) !important;
+}
+
+.category-list a,
+.tag-list a {
+  color: var(--wz-text-body) !important;
+  transition: color var(--wz-duration) var(--wz-ease);
+}
+
+.category-list a:hover,
+.tag-list a:hover {
+  color: var(--wz-accent-red) !important;
+}
+
+/* ===== 搜索框 ===== */
+#local-search-input {
+  font-family: var(--wz-font-cn) !important;
+  background: var(--wz-surface);
+  border: 1px solid var(--wz-border);
+  border-radius: 2px;
+  color: var(--wz-text-body);
+}
+
+#local-search-input:focus {
+  border-color: var(--wz-accent-red);
+  box-shadow: 0 0 0 3px rgba(185, 28, 28, 0.1);
+}
+
+/* ===== 返回顶部按钮 ===== */
+#go-up {
+  background: var(--wz-surface) !important;
+  color: var(--wz-text-body) !important;
+  border: 1px solid var(--wz-border);
+  border-radius: 2px !important;
+  box-shadow: var(--wz-shadow);
+  transition: all var(--wz-duration) var(--wz-ease);
+}
+
+#go-up:hover {
+  background: var(--wz-accent-red) !important;
+  border-color: var(--wz-accent-red);
+  color: var(--wz-surface) !important;
+}
+
+/* ===== 滚动条 ===== */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--wz-bg-end);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--wz-text-muted);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--wz-text-body);
+}
+
+/* ===== TOC目录 ===== */
+#card-toc .toc-link {
+  font-family: var(--wz-font-cn) !important;
+  color: var(--wz-text-body);
+  transition: all var(--wz-duration) var(--wz-ease);
+}
+
+#card-toc .toc-link:hover,
+#card-toc .toc-link.active {
+  color: var(--wz-accent-red);
+}
+
+#card-toc .toc-link.active::before {
+  background: var(--wz-accent-red) !important;
+}
+
+/* ===== 文章版权信息 ===== */
+.post-copyright {
+  background: rgba(185, 28, 28, 0.03) !important;
+  border-left: 3px solid var(--wz-accent-red) !important;
+  font-family: var(--wz-font-cn) !important;
+}
+
+/* ===== 文章打赏 ===== */
+.reward-button {
+  background: var(--wz-accent-red) !important;
+  border-radius: 2px !important;
+}
+
+/* ===== 友链页面 ===== */
+.flink-list-card {
+  padding: 20px;
+}
+
+.flink-list-card::before {
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+}
+
+.flink-list-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--wz-shadow-hover);
+}
+
+.flink-list-card .flink-item-name {
+  font-family: var(--wz-font-cn) !important;
+  color: var(--wz-text-title);
+}
+
+.flink-list-card .flink-item-desc {
+  color: var(--wz-text-muted);
+}
+
+/* ===== Canvas雪花层 ===== */
+#snow-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ===== 响应式适配 ===== */
+@media screen and (max-width: 768px) {
+  #article-container {
+    padding: 20px;
+    font-size: 16px;
+  }
+  
+  .recent-post-item::before,
+  .card-widget::before {
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+  }
+  
+  #aside-content .author-info__description {
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+    max-height: none;
+  }
+}
+
+/* ===== 打印样式 ===== */
+@media print {
+  body {
+    background: white !important;
+  }
+  
+  #snow-canvas,
+  #nav,
+  #aside-content,
+  #footer {
+    display: none !important;
+  }
+}
+
+/* ========================================
+ * 天气卡片 Hero 区域
+ * ======================================== */
+
+/* Hero容器 - 全屏首屏展示 */
+.weather-hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+  z-index: 10;
+  margin-bottom: 40px;
+}
+
+/* Hero内容布局 */
+.weather-hero-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+  max-width: 1200px;
+  width: 100%;
+  z-index: 10;
+  animation: wz-fade-up 1.5s var(--wz-ease) both;
+}
+
+/* 左侧诗词区域 */
+.weather-poetry {
+  text-align: left;
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.weather-poetry h2 {
+  font-family: var(--wz-font-cn) !important;
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: 0.5em;
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.weather-poetry .poetry-author {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.2em;
+  margin-top: 1.5rem;
+}
+
+.weather-poetry .poetry-decoration {
+  margin-top: 2rem;
+  opacity: 0.3;
+}
+
+/* 天气卡片主体 - 高级棉纸质感 */
+.weather-card {
+  background: rgba(253, 253, 253, 0.98) !important;
+  width: 380px;
+  aspect-ratio: 3 / 4;
+  position: relative;
+  padding: 12px;
+  border-radius: 2px;
+  box-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.4);
+  transition: transform 0.5s var(--wz-ease), box-shadow 0.5s var(--wz-ease);
+}
+
+.weather-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--wz-shadow-hover);
+}
+
+/* 卡片内边框 - 增强可见度 */
+.weather-card-inner {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #cbd5e1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 24px 32px;
+  box-sizing: border-box;
+}
+
+/* 四角装饰 - 增强可见度 */
+.weather-card-inner::before,
+.weather-card-inner::after,
+.corner-bl,
+.corner-br {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-color: #94a3b8;
+  border-style: solid;
+  border-width: 0;
+}
+
+.weather-card-inner::before {
+  top: 8px;
+  left: 8px;
+  border-top-width: 1px;
+  border-left-width: 1px;
+}
+
+.weather-card-inner::after {
+  top: 8px;
+  right: 8px;
+  border-top-width: 1px;
+  border-right-width: 1px;
+}
+
+.corner-bl {
+  bottom: 8px;
+  left: 8px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+}
+
+.corner-br {
+  bottom: 8px;
+  right: 8px;
+  border-bottom-width: 1px;
+  border-right-width: 1px;
+}
+
+/* 红色印章 - 鲜艳朱砂红 */
+.weather-stamp {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  width: 44px;
+  height: 44px;
+  background: #b91c1c !important;
+  color: #ffffff !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  transform: rotate(3deg);
+  box-shadow: 2px 2px 8px rgba(185, 28, 28, 0.4);
+  transition: transform 0.3s var(--wz-ease);
+  cursor: default;
+}
+
+.weather-stamp:hover {
+  transform: rotate(0deg);
+}
+
+.weather-stamp span {
+  font-family: var(--wz-font-cn);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+/* 城市与日期 */
+.weather-location {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.weather-city {
+  font-family: var(--wz-font-cn) !important;
+  font-size: 3rem;
+  font-weight: 500;
+  color: #1e293b !important;
+  letter-spacing: 0.3em;
+  margin: 0 0 12px 0;
+}
+
+.weather-date {
+  font-family: var(--wz-font-en) !important;
+  font-size: 0.75rem;
+  color: var(--wz-text-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.weather-date .dot {
+  width: 4px;
+  height: 4px;
+  background: var(--wz-text-muted);
+  border-radius: 50%;
+}
+
+/* 温度显示 */
+.weather-temp {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.weather-temp-value {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  color: var(--wz-text-title);
+}
+
+.weather-temp-number {
+  font-family: var(--wz-font-en) !important;
+  font-size: 7rem;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  color: #1e293b !important;
+}
+
+.weather-temp-unit {
+  font-family: var(--wz-font-en) !important;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--wz-text-muted);
+  margin-top: 16px;
+}
+
+.weather-condition {
+  font-family: var(--wz-font-cn) !important;
+  font-size: 1.1rem;
+  color: var(--wz-text-body);
+  letter-spacing: 0.3em;
+  margin-top: 8px;
+}
+
+/* 分割线 - 增强可见度 */
+.weather-divider {
+  width: 100%;
+  height: 1px;
+  background: #cbd5e1 !important;
+  margin: auto 0;
+}
+
+/* 底部详情网格 */
+.weather-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 16px;
+  width: 100%;
+  margin-top: 32px;
+}
+
+.weather-detail-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.weather-detail-item:nth-child(odd) {
+  border-right: 1px solid #cbd5e1;
+  padding-right: 16px;
+}
+
+.weather-detail-item:nth-child(even) {
+  padding-left: 16px;
+}
+
+.weather-detail-label {
+  font-family: var(--wz-font-en) !important;
+  font-size: 0.75rem;
+  color: #475569 !important;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.weather-detail-value {
+  font-family: var(--wz-font-cn) !important;
+  font-size: 1rem;
+  color: #1e293b !important;
+  font-weight: 600;
+}
+
+.weather-detail-value.good {
+  color: #047857 !important;
+  font-weight: 600;
+}
+
+/* 滚动提示箭头 */
+.scroll-hint {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.5);
+  animation: scroll-bounce 2s ease-in-out infinite;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.scroll-hint i {
+  font-size: 2rem;
+}
+
+@keyframes scroll-bounce {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateX(-50%) translateY(10px);
+    opacity: 1;
+  }
+}
+
+/* 响应式 - 移动端 */
+@media screen and (max-width: 900px) {
+  .weather-hero-content {
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .weather-poetry {
+    text-align: center;
+  }
+  
+  .weather-poetry h2 {
+    font-size: 1.3rem;
+    letter-spacing: 0.3em;
+  }
+  
+  .weather-poetry .poetry-decoration {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .weather-card {
+    width: 320px;
+  }
+  
+  .weather-city {
+    font-size: 2.2rem;
+  }
+  
+  .weather-temp-number {
+    font-size: 5rem;
+  }
+  
+  .weather-poetry h2 {
+    font-size: 1.1rem;
+  }
+}
+
+/* 天气卡片默认显示，由JS控制是否创建 */

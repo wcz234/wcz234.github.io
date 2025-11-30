@@ -1,0 +1,566 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>关于我 | 心平愈千疾</title><meta name="author" content="wcz234"><meta name="copyright" content="wcz234"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#fdfdfd"><meta name="description" content="&#x2F;* 关于页面专属样式 - 老王出品 *&#x2F; .about-hero {   text-align: center;   padding: 4rem 2rem;   background: linear-gradient(135deg, rgba(121, 40, 202, 0.1) 0%, rgba(0, 112, 243, 0.1) 100%);   border-radius: 24px;">
+<meta property="og:type" content="website">
+<meta property="og:title" content="关于我">
+<meta property="og:url" content="https://xpyqj.xyz/about/index.html">
+<meta property="og:site_name" content="心平愈千疾">
+<meta property="og:description" content="&#x2F;* 关于页面专属样式 - 老王出品 *&#x2F; .about-hero {   text-align: center;   padding: 4rem 2rem;   background: linear-gradient(135deg, rgba(121, 40, 202, 0.1) 0%, rgba(0, 112, 243, 0.1) 100%);   border-radius: 24px;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xpyqj.xyz/img/avatar.jpg">
+<meta property="article:published_time" content="2025-11-13T04:00:00.000Z">
+<meta property="article:modified_time" content="2025-11-25T03:32:13.312Z">
+<meta property="article:author" content="wcz234">
+<meta property="article:tag" content="技术,学习,生活">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xpyqj.xyz/img/avatar.jpg"><script type="application/ld+json"></script><link rel="shortcut icon" href="/images/favicon.png"><link rel="canonical" href="https://xpyqj.xyz/about/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&amp;family=Playfair+Display:wght@400;500;600;700&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: wcz234","link":"链接: ","source":"来源: 心平愈千疾","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.12.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '关于我',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'page'
+}</script><link rel="stylesheet" href="/css/custom.css"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="心平愈千疾" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      if ($loadingBox.classList.contains('loaded')) return
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+
+  if (document.readyState === 'complete') {
+    preloader.endLoading()
+  } else {
+    window.addEventListener('load', preloader.endLoading)
+    document.addEventListener('DOMContentLoaded', preloader.endLoading)
+    // Add timeout protection: force end after 7 seconds
+    setTimeout(preloader.endLoading, 7000)
+  }
+
+  if (true) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div></div></div><div class="page type-about" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">心平愈千疾</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><h1 class="title-seo">关于我</h1></header><main class="layout" id="content-inner"><div id="page"><div class="page-title">关于我</div><div class="container" id="article-container"><style>
+/* 关于页面专属样式 - 老王出品 */
+.about-hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, rgba(121, 40, 202, 0.1) 0%, rgba(0, 112, 243, 0.1) 100%);
+  border-radius: 24px;
+  margin: -2rem -1rem 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 0, 128, 0.05) 0%, transparent 50%);
+  animation: float 10s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(3%, 3%); }
+}
+
+.about-hero h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ff0080, #7928ca, #0070f3);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.about-hero p {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.tech-tag {
+  padding: 0.625rem 1.25rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: white;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: default;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.tech-tag:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin: 3rem 0;
+}
+
+.stat-card {
+  padding: 2rem;
+  border-radius: 20px;
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.stat-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
+}
+
+.stat-card:hover::before {
+  opacity: 1;
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 1rem;
+  margin-top: 0.75rem;
+  opacity: 0.9;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.feature-card {
+  padding: 2rem;
+  background: var(--glass-bg, rgba(255,255,255,0.7));
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-color, rgba(0,0,0,0.08));
+  border-radius: 20px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12), 0 0 40px rgba(0, 112, 243, 0.1);
+  border-color: rgba(0, 112, 243, 0.3);
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.feature-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+}
+
+.feature-desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.cta-section {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #ff0080, #7928ca, #0070f3);
+  border-radius: 24px;
+  margin: 3rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.5;
+}
+
+.cta-section h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.cta-section p {
+  font-size: 1.2rem;
+  color: rgba(255,255,255,0.9);
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .about-hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .stat-number {
+    font-size: 2.25rem;
+  }
+
+  .cta-section h2 {
+    font-size: 1.75rem;
+  }
+}
+</style>
+
+<div class="about-hero">
+  <h1>👋 Hey, I'm wcz234</h1>
+  <p>一个热爱技术、追求极致的全栈开发者，专注于创造优雅的数字体验</p>
+</div>
+
+<hr>
+<h2 id="🎯-关于本站"><a href="#🎯-关于本站" class="headerlink" title="🎯 关于本站"></a>🎯 关于本站</h2><p><strong>心平愈千疾</strong> 是我的个人技术博客，名字取自道家理念：</p>
+<blockquote>
+<p>我观观音观自在，我见真武见真我</p>
+</blockquote>
+<p>这里记录我在技术道路上的学习心得、项目经验和个人思考。希望通过分享，能够帮助到更多的技术爱好者。</p>
+<hr>
+<h2 id="👨‍💻-技术栈"><a href="#👨‍💻-技术栈" class="headerlink" title="👨‍💻 技术栈"></a>👨‍💻 技术栈</h2><div class="tech-stack">
+  <span class="tech-tag" style="background: linear-gradient(135deg, #61DAFB, #00D8FF);">React</span>
+  <span class="tech-tag" style="background: linear-gradient(135deg, #42B883, #35495E);">Vue</span>
+  <span class="tech-tag" style="background: linear-gradient(135deg, #F7DF1E, #E8D44D);">JavaScript</span>
+  <span class="tech-tag" style="background: linear-gradient(135deg, #3178C6, #235A97);">TypeScript</span>
+  <span class="tech-tag" style="background: linear-gradient(135deg, #339933, #215732);">Node.js</span>
+  <span class="tech-tag" style="background: linear-gradient(135deg, #3776AB, #254F72);">Python</span>
+  <span class="tech-tag" style="background: linear-gradient(135deg, #FF6B6B, #EE5253);">Hexo</span>
+  <span class="tech-tag" style="background: linear-gradient(135deg, #181717, #333333);">Git</span>
+  <span class="tech-tag" style="background: linear-gradient(135deg, #007ACC, #0065A9);">VS Code</span>
+  <span class="tech-tag" style="background: linear-gradient(135deg, #E34F26, #F16529);">HTML5</span>
+  <span class="tech-tag" style="background: linear-gradient(135deg, #1572B6, #2965F1);">CSS3</span>
+  <span class="tech-tag" style="background: linear-gradient(135deg, #CC6699, #BF4080);">Sass</span>
+</div>
+
+<hr>
+<h2 id="🎨-博客特色"><a href="#🎨-博客特色" class="headerlink" title="🎨 博客特色"></a>🎨 博客特色</h2><div class="feature-grid">
+  <div class="feature-card">
+    <div class="feature-icon">✨</div>
+    <div class="feature-title">毛玻璃效果</div>
+    <div class="feature-desc">参考 Apple 设计语言，采用 Glassmorphism 毛玻璃效果，呈现精致的视觉层次</div>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">🎭</div>
+    <div class="feature-title">流畅动画</div>
+    <div class="feature-desc">60fps 丝滑过渡效果，采用 Apple 弹性缓动函数，带来愉悦的交互体验</div>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">🌓</div>
+    <div class="feature-title">暗黑模式</div>
+    <div class="feature-desc">Vercel 风格暗黑主题，霓虹发光效果，护眼且现代感十足</div>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">📱</div>
+    <div class="feature-title">响应式设计</div>
+    <div class="feature-desc">完美适配各种设备，从桌面到移动端都能获得最佳体验</div>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">⚡</div>
+    <div class="feature-title">极致性能</div>
+    <div class="feature-desc">静态站点 + CDN 加速，GPU 硬件加速动画，秒开体验</div>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">🎯</div>
+    <div class="feature-title">优雅排版</div>
+    <div class="feature-desc">Apple 风格字体系统，精心调校的行高和间距，带来舒适的阅读体验</div>
+  </div>
+</div>
+
+<hr>
+<h2 id="📊-博客统计"><a href="#📊-博客统计" class="headerlink" title="📊 博客统计"></a>📊 博客统计</h2><div class="stats-grid">
+  <div class="stat-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+    <div class="stat-number">10+</div>
+    <div class="stat-label">技术文章</div>
+  </div>
+  <div class="stat-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+    <div class="stat-number">5+</div>
+    <div class="stat-label">技术分类</div>
+  </div>
+  <div class="stat-card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+    <div class="stat-number">1K+</div>
+    <div class="stat-label">访问量</div>
+  </div>
+  <div class="stat-card" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+    <div class="stat-number">∞</div>
+    <div class="stat-label">学习热情</div>
+  </div>
+</div>
+
+<hr>
+<h2 id="💡-个人理念"><a href="#💡-个人理念" class="headerlink" title="💡 个人理念"></a>💡 个人理念</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Stay Hungry, Stay Foolish</span><br><span class="line">求知若渴，虚心若愚</span><br></pre></td></tr></table></figure>
+
+<p>我相信：</p>
+<ul>
+<li>📖 <strong>持续学习</strong> - 技术日新月异，保持学习热情</li>
+<li>🚀 <strong>追求极致</strong> - 不仅要做到，更要做好</li>
+<li>🤝 <strong>乐于分享</strong> - 分享是最好的学习方式</li>
+<li>🎯 <strong>解决问题</strong> - 技术的本质是解决实际问题</li>
+</ul>
+<hr>
+<h2 id="📞-联系方式"><a href="#📞-联系方式" class="headerlink" title="📞 联系方式"></a>📞 联系方式</h2><h3 id="社交媒体"><a href="#社交媒体" class="headerlink" title="社交媒体"></a>社交媒体</h3><ul>
+<li><strong>GitHub</strong>: <a target="_blank" rel="noopener" href="https://github.com/wcz234">@wcz234</a></li>
+<li><strong>Email</strong>: <a href="mailto:2574070432@qq.com">2574070432@qq.com</a></li>
+<li><strong>博客</strong>: <a href="https://xpyqj.xyz/">https://xpyqj.xyz</a></li>
+</ul>
+<h3 id="交流方式"><a href="#交流方式" class="headerlink" title="交流方式"></a>交流方式</h3><p>如果你对我的文章感兴趣，或者有任何技术问题想要交流，欢迎通过以下方式联系我：</p>
+<ul>
+<li>📧 <strong>邮件</strong> - 最推荐的联系方式</li>
+<li>💬 <strong>评论</strong> - 在文章下方留言</li>
+<li>🐙 <strong>GitHub</strong> - 提 Issue 或 PR</li>
+</ul>
+<hr>
+<h2 id="🎁-博客开源"><a href="#🎁-博客开源" class="headerlink" title="🎁 博客开源"></a>🎁 博客开源</h2><p>本博客基于 <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 搭建，使用 <a target="_blank" rel="noopener" href="https://butterfly.js.org/">Butterfly</a> 主题，并参考 <strong>Apple、Vercel、Stripe</strong> 等顶级科技公司的设计语言进行深度定制。</p>
+<p>如果你也想搭建类似的博客，可以参考：</p>
+<ul>
+<li>📦 <a target="_blank" rel="noopener" href="https://github.com/wcz234/xpyqj_blog.github.io">博客源码</a></li>
+<li>📝 <a href="https://xpyqj.xyz/archives/">搭建教程</a></li>
+<li>🎨 <a target="_blank" rel="noopener" href="https://butterfly.js.org/">Butterfly 主题</a></li>
+</ul>
+<hr>
+<div class="cta-section">
+  <h2>感谢你的访问！</h2>
+  <p>如果你觉得内容有帮助，欢迎给个 Star ⭐</p>
+  <p style="margin-top: 0.5rem; font-size: 1rem; opacity: 0.8;">让我们一起在技术的道路上不断前行！</p>
+</div>
+</div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">wcz234</div><div class="author-info-description">静坐常思己过，闲谈莫论人非</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/wcz234"><i class="fab fa-github"></i><span>访问 Github</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/wcz234" target="_blank" title="Github"><i class="fab fa-github" style="color: #334155;"></i></a><a class="social-icon" href="mailto:2574070432@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #b91c1c;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">寒夜客来茶当酒，竹炉汤沸火初红。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/11/22/javascript-async-programming/" title="JavaScript异步编程完全指南 - Promise、async/await"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/covers/default-4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JavaScript异步编程完全指南 - Promise、async/await"/></a><div class="content"><a class="title" href="/2025/11/22/javascript-async-programming/" title="JavaScript异步编程完全指南 - Promise、async/await">JavaScript异步编程完全指南 - Promise、async/await</a><time datetime="2025-11-22T08:00:00.000Z" title="发表于 2025-11-22 16:00:00">2025-11-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/11/20/modern-css-glassmorphism/" title="现代CSS技巧 - 打造Apple风格毛玻璃效果"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/covers/default-1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="现代CSS技巧 - 打造Apple风格毛玻璃效果"/></a><div class="content"><a class="title" href="/2025/11/20/modern-css-glassmorphism/" title="现代CSS技巧 - 打造Apple风格毛玻璃效果">现代CSS技巧 - 打造Apple风格毛玻璃效果</a><time datetime="2025-11-20T02:00:00.000Z" title="发表于 2025-11-20 10:00:00">2025-11-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/11/18/git-workflow-best-practices/" title="Git工作流最佳实践 - 从入门到精通"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/covers/default-2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Git工作流最佳实践 - 从入门到精通"/></a><div class="content"><a class="title" href="/2025/11/18/git-workflow-best-practices/" title="Git工作流最佳实践 - 从入门到精通">Git工作流最佳实践 - 从入门到精通</a><time datetime="2025-11-18T06:30:00.000Z" title="发表于 2025-11-18 14:30:00">2025-11-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/11/15/hexo-butterfly-blog-guide/" title="搭建个人博客完整指南 - Hexo + Butterfly主题"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/covers/default-3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="搭建个人博客完整指南 - Hexo + Butterfly主题"/></a><div class="content"><a class="title" href="/2025/11/15/hexo-butterfly-blog-guide/" title="搭建个人博客完整指南 - Hexo + Butterfly主题">搭建个人博客完整指南 - Hexo + Butterfly主题</a><time datetime="2025-11-15T01:00:00.000Z" title="发表于 2025-11-15 09:00:00">2025-11-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/11/05/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" title="我的第一篇博客"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/blog-cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="我的第一篇博客"/></a><div class="content"><a class="title" href="/2025/11/05/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" title="我的第一篇博客">我的第一篇博客</a><time datetime="2025-11-05T12:09:55.000Z" title="发表于 2025-11-05 20:09:55">2025-11-05</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"><span class="card-category-list-name">前端开发</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"><span class="card-category-list-name">博客搭建</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"><span class="card-category-list-name">开发工具</span><span class="card-category-list-count">1</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 1.1em; color: #999">教程</a> <a href="/tags/%E9%A6%96%E6%AC%A1%E6%90%AD%E5%BB%BA/" style="font-size: 1.1em; color: #999">首次搭建</a> <a href="/tags/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" style="font-size: 1.1em; color: #999">最佳实践</a> <a href="/tags/Butterfly/" style="font-size: 1.1em; color: #999">Butterfly</a> <a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" style="font-size: 1.1em; color: #999">开发工具</a> <a href="/tags/async-await/" style="font-size: 1.1em; color: #999">async/await</a> <a href="/tags/Promise/" style="font-size: 1.1em; color: #999">Promise</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 1.1em; color: #999">前端</a> <a href="/tags/Git/" style="font-size: 1.1em; color: #999">Git</a> <a href="/tags/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/" style="font-size: 1.1em; color: #999">异步编程</a> <a href="/tags/UI%E8%AE%BE%E8%AE%A1/" style="font-size: 1.1em; color: #999">UI设计</a> <a href="/tags/JavaScript/" style="font-size: 1.1em; color: #999">JavaScript</a> <a href="/tags/CSS/" style="font-size: 1.1em; color: #999">CSS</a> <a href="/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" style="font-size: 1.1em; color: #999">版本控制</a> <a href="/tags/Hexo/" style="font-size: 1.5em; color: #99a9bf">Hexo</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 1.5em; color: #99a9bf">博客</a> <a href="/tags/Apple%E9%A3%8E%E6%A0%BC/" style="font-size: 1.1em; color: #999">Apple风格</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/11/">
+            <span class="card-archive-list-date">
+              2025年11月
+            </span>
+            <span class="card-archive-list-count">5</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">5</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">3.2k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-11-30T13:53:35.471Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By wcz234</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></span></div><div class="footer_custom_text">心平愈千疾 · Winter Zen</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.1"></script><script src="/js/main.js?v=5.5.1"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0.33/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.iife.min.js"></script><div class="js-pjax"></div><script src="/js/custom.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script>(() => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      const usePjax = true
+      true
+        ? (usePjax ? pjax.loadUrl('/404.html') : window.location.href = '/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章..." type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.1"></script></div></div></body></html>
