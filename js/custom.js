@@ -192,18 +192,18 @@
   let cachedWeather = { temp: '8', condition: '晴', humidity: '65', wind: '北风 2级', aqi: 0, aqiText: '--', visibility: '10' };
   let cachedCity = '杭州';
 
-  // 获取实时天气（Open-Meteo，免费无需key，全球数据）
+  // 获取实时天气（青桔API定位 + Open-Meteo天气）
   async function fetchRealWeather() {
     try {
-      // 1. IP定位获取经纬度（使用ipwho.is，HTTPS免费）
-      const ipRes = await fetch('https://ipwho.is/');
+      // 1. 青桔API - 国内快速IP定位（支持CORS）
+      const ipRes = await fetch('https://api.qjqq.cn/api/Local');
       const ipData = await ipRes.json();
       
-      if (!ipData.success) throw new Error('IP定位失败');
+      if (ipData.code !== 200) throw new Error('IP定位失败');
       
-      const city = ipData.city || '未知';
-      const lat = ipData.latitude;
-      const lon = ipData.longitude;
+      const city = ipData.data.city || ipData.data.prov || '未知';
+      const lat = ipData.data.lat;
+      const lon = ipData.data.lng;
       cachedCity = city;
       console.log('[WeatherHero] 定位:', city, lat, lon);
 
