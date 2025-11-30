@@ -13,15 +13,15 @@
   --wz-bg-center: #334155;
   --wz-bg-edge: #0f172a;
   
-  /* 卡片/容器色 - V2.0半透明 */
-  --wz-surface: rgba(253, 253, 253, 0.92);
-  --wz-surface-solid: #fdfdfd;
-  --wz-surface-hover: rgba(255, 255, 255, 0.95);
+  /* 卡片/容器色 - 月光霜色 Moonlight Frost */
+  --wz-surface: rgba(241, 245, 249, 0.96);
+  --wz-surface-solid: #f1f5f9;
+  --wz-surface-hover: rgba(248, 250, 252, 0.98);
   
-  /* 文字色 */
-  --wz-text-title: #334155;
-  --wz-text-body: #475569;
-  --wz-text-muted: #94a3b8;
+  /* 文字色 - 深色确保清晰 */
+  --wz-text-title: #1e293b;
+  --wz-text-body: #334155;
+  --wz-text-muted: #64748b;
   
   /* 强调色 */
   --wz-accent-red: #b91c1c;
@@ -185,16 +185,17 @@ main,
   display: none !important;
 }
 
-/* ===== 卡片通用样式 - 高级棉纸质感 ===== */
+/* ===== 卡片通用样式 - 月光霜色 Moonlight Frost ===== */
 .recent-post-item,
 .card-widget,
 #post,
 #page {
-  background: rgba(253, 253, 253, 0.98) !important;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(241, 245, 249, 0.96) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-radius: 12px !important;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.4);
   position: relative;
   transition: all var(--wz-duration) var(--wz-ease);
 }
