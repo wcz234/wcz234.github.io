@@ -1,10 +1,42 @@
 /**
  * Winter Zen - 冬日书斋
- * 包含：雪花粒子效果 + 天气卡片Hero
+ * 包含：雪花粒子效果 + 天气卡片Hero + 深夜提灯光照
  */
 
 (function() {
   'use strict';
+
+  /* ========================================
+   * 深夜提灯 - 鼠标光照效果
+   * ======================================== */
+  function initLanternEffect() {
+    let ticking = false;
+    
+    document.addEventListener('mousemove', (e) => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          // 更新全局光照位置
+          document.body.style.setProperty('--mouse-x', e.clientX + 'px');
+          document.body.style.setProperty('--mouse-y', e.clientY + 'px');
+          
+          // 更新卡片微光位置
+          const cards = document.querySelectorAll('.recent-post-item, .card-widget');
+          cards.forEach(card => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.setProperty('--card-mouse-x', x + 'px');
+            card.style.setProperty('--card-mouse-y', y + 'px');
+          });
+          
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+    
+    console.log('[Lantern] 深夜提灯效果已启用');
+  }
 
   /* ========================================
    * 第一部分：雪花粒子效果
@@ -450,6 +482,7 @@
 
   function init() {
     initSnow();
+    initLanternEffect();
     // 多次尝试创建天气卡片，确保DOM完全加载
     createWeatherHero();
     setTimeout(createWeatherHero, 300);
