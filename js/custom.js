@@ -368,6 +368,11 @@
     setTimeout(createWeatherHero, 800);
   }
 
+  // 立即输出调试信息
+  console.log('[WeatherHero] JS文件已加载');
+  console.log('[WeatherHero] 当前路径:', window.location.pathname);
+  console.log('[WeatherHero] pageType:', window.GLOBAL_CONFIG_SITE ? window.GLOBAL_CONFIG_SITE.pageType : '未定义');
+  
   // 确保在页面完全加载后执行
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
@@ -377,6 +382,7 @@
   
   // 页面加载完成后再次尝试
   window.addEventListener('load', () => {
+    console.log('[WeatherHero] window.load 事件触发');
     setTimeout(createWeatherHero, 100);
   });
 
