@@ -192,20 +192,29 @@
   let cachedWeather = { temp: '8', condition: '晴', humidity: '65', wind: '北风 2级', aqi: 0, aqiText: '--', visibility: '10' };
   let cachedCity = '杭州';
 
-  // 获取实时天气（青桔API定位 + Open-Meteo天气）
+  // 通过经纬度反向获取城市名
+  async function getCityName(lat, lon) {
+    try {
+      const res = await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=zh`);
+      const data = await res.json();
+      return data.city || data.locality || data.principalSubdivision || '未知';
+    } catch { return '未知'; }
+  }
+
+  // 获取实时天气（浏览器定位 + Open-Meteo天气）
   async function fetchRealWeather() {
     try {
-      // 1. 青桔API - 国内快速IP定位（支持CORS）
-      const ipRes = await fetch('https://api.qjqq.cn/api/Local');
-      const ipData = await ipRes.json();
+      // 1. 浏览器原生定位（最准确可靠）
+      const pos = await new Promise((resolve, reject) => {
+        if (!navigator.geolocation) reject(new Error('不支持定位'));
+        navigator.geolocation.getCurrentPosition(resolve, reject, { timeout: 5000, enableHighAccuracy: false });
+      });
       
-      if (ipData.code !== 200) throw new Error('IP定位失败');
-      
-      const city = ipData.data.city || ipData.data.prov || '未知';
-      const lat = ipData.data.lat;
-      const lon = ipData.data.lng;
+      const lat = pos.coords.latitude;
+      const lon = pos.coords.longitude;
+      const city = await getCityName(lat, lon);
       cachedCity = city;
-      console.log('[WeatherHero] 定位:', city, lat, lon);
+      console.log('[WeatherHero] 浏览器定位:', city, lat, lon);
 
       // 2. Open-Meteo天气API（免费、快速、无需key）
       const weatherRes = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m,wind_direction_10m,visibility&timezone=auto`);
