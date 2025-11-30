@@ -192,50 +192,55 @@
   let cachedWeather = { temp: '8', condition: '晴', humidity: '65', wind: '北风 2级', aqi: 0, aqiText: '--', visibility: '10' };
   let cachedCity = '杭州';
 
-  // 高德地图API Key (免费申请: https://lbs.amap.com)
-  const AMAP_KEY = 'c1d8179f447796c8e5836ed5abd0f01e';
-
-  // 获取实时天气（基于IP定位 - 使用高德API，国内速度快）
+  // 获取实时天气（Open-Meteo，免费无需key，全球数据）
   async function fetchRealWeather() {
     try {
-      // 1. 高德IP定位（极快，<100ms）
-      const ipRes = await fetch(`https://restapi.amap.com/v3/ip?key=${AMAP_KEY}`);
+      // 1. IP定位获取经纬度（使用ipwho.is，HTTPS免费）
+      const ipRes = await fetch('https://ipwho.is/');
       const ipData = await ipRes.json();
       
-      if (ipData.status !== '1') throw new Error('IP定位失败');
+      if (!ipData.success) throw new Error('IP定位失败');
       
-      const city = ipData.city || ipData.province || '未知';
-      const adcode = ipData.adcode;
+      const city = ipData.city || '未知';
+      const lat = ipData.latitude;
+      const lon = ipData.longitude;
       cachedCity = city;
-      console.log('[WeatherHero] 高德定位:', city, adcode);
+      console.log('[WeatherHero] 定位:', city, lat, lon);
 
-      // 2. 高德天气API（实时天气）
-      const weatherRes = await fetch(`https://restapi.amap.com/v3/weather/weatherInfo?key=${AMAP_KEY}&city=${adcode}&extensions=base`);
-      const weatherData = await weatherRes.json();
+      // 2. Open-Meteo天气API（免费、快速、无需key）
+      const weatherRes = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m,wind_direction_10m,visibility&timezone=auto`);
+      const data = await weatherRes.json();
       
-      if (weatherData.status !== '1' || !weatherData.lives || !weatherData.lives[0]) {
-        throw new Error('天气获取失败');
-      }
+      const current = data.current;
+      const temp = Math.round(current.temperature_2m);
+      const humidity = current.relative_humidity_2m;
+      const windSpeed = Math.round(current.wind_speed_10m);
+      const windDir = current.wind_direction_10m;
+      const visibility = Math.round((current.visibility || 10000) / 1000);
       
-      const live = weatherData.lives[0];
-      cachedWeather = {
-        temp: live.temperature,
-        condition: live.weather,
-        humidity: live.humidity,
-        wind: live.winddirection + '风 ' + live.windpower + '级',
-        aqi: 0,
-        aqiText: '--',
-        visibility: '--'
+      // 风向转中文
+      const dirs = ['北', '东北', '东', '东南', '南', '西南', '西', '西北'];
+      const windCN = dirs[Math.round(windDir / 45) % 8] + '风';
+      const windLevel = windSpeed < 12 ? '2级' : windSpeed < 20 ? '3级' : windSpeed < 29 ? '4级' : '5级';
+      
+      // WMO天气代码转中文
+      const wmoMap = {
+        0: '晴', 1: '晴', 2: '多云', 3: '阴',
+        45: '雾', 48: '雾', 51: '小雨', 53: '小雨', 55: '中雨',
+        61: '小雨', 63: '中雨', 65: '大雨', 66: '冻雨', 67: '冻雨',
+        71: '小雪', 73: '中雪', 75: '大雪', 77: '雪粒',
+        80: '阵雨', 81: '阵雨', 82: '暴雨', 85: '小雪', 86: '大雪',
+        95: '雷暴', 96: '雷暴', 99: '雷暴'
       };
+      const condition = wmoMap[current.weather_code] || '晴';
+
+      cachedWeather = { temp, condition, humidity, wind: windCN + ' ' + windLevel, aqi: 0, aqiText: '--', visibility };
       
       console.log('[WeatherHero] 天气获取成功:', cachedWeather);
       return { city: cachedCity, weather: cachedWeather };
     } catch (err) {
       console.error('[WeatherHero] 天气获取失败:', err);
-      return {
-        city: '未知',
-        weather: { temp: '--', condition: '--', humidity: '--', wind: '--', aqi: 0, aqiText: '--', visibility: '--' }
-      };
+      return { city: cachedCity, weather: cachedWeather };
     }
   }
 

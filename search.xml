@@ -1,41 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>我的第一篇博客</title>
-    <url>/2025/11/05/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<h1 id="🎉-欢迎来到我的博客"><a href="#🎉-欢迎来到我的博客" class="headerlink" title="🎉 欢迎来到我的博客"></a>🎉 欢迎来到我的博客</h1><p>这是我在 Hexo 上搭建的第一篇博客，记录下这个激动人心的时刻！</p>
-<h2 id="🚀-博客搭建历程"><a href="#🚀-博客搭建历程" class="headerlink" title="🚀 博客搭建历程"></a>🚀 博客搭建历程</h2><p>今天正式搭建了自己的个人博客，使用了以下技术栈：</p>
-<ul>
-<li><strong>静态生成器</strong>: Hexo 7.3.0</li>
-<li><strong>主题</strong>: Butterfly</li>
-<li><strong>托管平台</strong>: GitHub Pages</li>
-<li><strong>部署方式</strong>: Git 自动部署</li>
-</ul>
-<p>虽然过程中遇到了一些问题，但最终还是成功搭建完成！</p>
-<h2 id="✨-未来计划"><a href="#✨-未来计划" class="headerlink" title="✨ 未来计划"></a>✨ 未来计划</h2><ol>
-<li>分享技术学习心得</li>
-<li>记录项目开发经验</li>
-<li>探索前沿技术趋势</li>
-<li>结识更多技术爱好者</li>
-</ol>
-<h2 id="📞-联系方式"><a href="#📞-联系方式" class="headerlink" title="📞 联系方式"></a>📞 联系方式</h2><p>如果你对我的博客内容感兴趣，欢迎通过以下方式联系我：</p>
-<ul>
-<li>GitHub: <a href="https://github.com/wcz234">@wcz234</a></li>
-<li>邮箱: <a href="mailto:&#x77;&#99;&#x7a;&#x32;&#x33;&#52;&#x40;&#117;&#115;&#x65;&#x72;&#x73;&#x2e;&#110;&#111;&#114;&#x65;&#112;&#x6c;&#x79;&#46;&#x67;&#105;&#x74;&#x68;&#x75;&#x62;&#46;&#99;&#111;&#109;">&#x77;&#99;&#x7a;&#x32;&#x33;&#52;&#x40;&#117;&#115;&#x65;&#x72;&#x73;&#x2e;&#110;&#111;&#114;&#x65;&#112;&#x6c;&#x79;&#46;&#x67;&#105;&#x74;&#x68;&#x75;&#x62;&#46;&#99;&#111;&#109;</a></li>
-</ul>
-<hr>
-<p><strong>感谢您的访问，期待与您交流！</strong> 🎈</p>
-]]></content>
-      <categories>
-        <category>博客搭建</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>博客</tag>
-        <tag>首次搭建</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Git工作流最佳实践 - 从入门到精通</title>
     <url>/2025/11/18/git-workflow-best-practices/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Git是现代软件开发必备的版本控制工具。但很多人只会基础的 <code>add</code>、<code>commit</code>、<code>push</code>，遇到复杂场景就懵了。</p>
@@ -144,84 +109,6 @@
         <tag>版本控制</tag>
         <tag>开发工具</tag>
         <tag>最佳实践</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>搭建个人博客完整指南 - Hexo + Butterfly主题</title>
-    <url>/2025/11/15/hexo-butterfly-blog-guide/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>拥有一个个人博客是每个程序员的标配。今天我来分享如何从零搭建一个像本站一样精美的个人博客！</p>
-<span id="more"></span>
-
-<h2 id="一、环境准备"><a href="#一、环境准备" class="headerlink" title="一、环境准备"></a>一、环境准备</h2><h3 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h3><p>访问 <a href="https://nodejs.org/">Node.js官网</a> 下载LTS版本。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 验证安装</span></span><br><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
-
-<h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><p>访问 <a href="https://git-scm.com/">Git官网</a> 下载安装。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 验证安装</span></span><br><span class="line">git --version</span><br></pre></td></tr></table></figure>
-
-<h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证安装</span></span><br><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
-
-<h2 id="二、创建博客"><a href="#二、创建博客" class="headerlink" title="二、创建博客"></a>二、创建博客</h2><h3 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init my-blog</span><br><span class="line"><span class="built_in">cd</span> my-blog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
-
-<h3 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">my-blog/</span><br><span class="line">├── _config.yml      # 站点配置</span><br><span class="line">├── package.json     # 依赖配置</span><br><span class="line">├── scaffolds/       # 模板文件夹</span><br><span class="line">├── source/          # 资源文件夹</span><br><span class="line">│   ├── _posts/      # 文章</span><br><span class="line">│   └── _drafts/     # 草稿</span><br><span class="line">└── themes/          # 主题文件夹</span><br></pre></td></tr></table></figure>
-
-<h3 id="基础命令"><a href="#基础命令" class="headerlink" title="基础命令"></a>基础命令</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new <span class="string">&quot;文章标题&quot;</span>    <span class="comment"># 创建文章</span></span><br><span class="line">hexo clean            <span class="comment"># 清理缓存</span></span><br><span class="line">hexo generate         <span class="comment"># 生成静态文件</span></span><br><span class="line">hexo server           <span class="comment"># 本地预览</span></span><br><span class="line">hexo deploy           <span class="comment"># 部署</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="三、安装Butterfly主题"><a href="#三、安装Butterfly主题" class="headerlink" title="三、安装Butterfly主题"></a>三、安装Butterfly主题</h2><h3 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-theme-butterfly --save</span><br></pre></td></tr></table></figure>
-
-<h3 id="创建主题配置"><a href="#创建主题配置" class="headerlink" title="创建主题配置"></a>创建主题配置</h3><p>在项目根目录创建 <code>_config.butterfly.yml</code>：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 导航栏</span></span><br><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="string">首页:</span> <span class="string">/</span> <span class="string">||</span> <span class="string">fas</span> <span class="string">fa-home</span></span><br><span class="line">  <span class="string">归档:</span> <span class="string">/archives/</span> <span class="string">||</span> <span class="string">fas</span> <span class="string">fa-archive</span></span><br><span class="line">  <span class="string">标签:</span> <span class="string">/tags/</span> <span class="string">||</span> <span class="string">fas</span> <span class="string">fa-tags</span></span><br><span class="line">  <span class="string">分类:</span> <span class="string">/categories/</span> <span class="string">||</span> <span class="string">fas</span> <span class="string">fa-folder-open</span></span><br><span class="line">  <span class="string">关于:</span> <span class="string">/about/</span> <span class="string">||</span> <span class="string">fas</span> <span class="string">fa-user</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 头像</span></span><br><span class="line"><span class="attr">avatar:</span></span><br><span class="line">  <span class="attr">img:</span> <span class="string">/images/avatar.jpg</span></span><br><span class="line">  <span class="attr">effect:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 暗黑模式</span></span><br><span class="line"><span class="attr">darkmode:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">button:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="修改站点配置"><a href="#修改站点配置" class="headerlink" title="修改站点配置"></a>修改站点配置</h3><p>编辑 <code>_config.yml</code>：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">butterfly</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="四、创建必要页面"><a href="#四、创建必要页面" class="headerlink" title="四、创建必要页面"></a>四、创建必要页面</h2><h3 id="标签页"><a href="#标签页" class="headerlink" title="标签页"></a>标签页</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new page tags</span><br></pre></td></tr></table></figure>
-
-<p>编辑 <code>source/tags/index.md</code>：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">标签</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">tags</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="分类页"><a href="#分类页" class="headerlink" title="分类页"></a>分类页</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new page categories</span><br></pre></td></tr></table></figure>
-
-<h3 id="关于页"><a href="#关于页" class="headerlink" title="关于页"></a>关于页</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new page about</span><br></pre></td></tr></table></figure>
-
-<h2 id="五、自定义美化"><a href="#五、自定义美化" class="headerlink" title="五、自定义美化"></a>五、自定义美化</h2><h3 id="创建自定义CSS"><a href="#创建自定义CSS" class="headerlink" title="创建自定义CSS"></a>创建自定义CSS</h3><p>创建 <code>source/css/custom.css</code>：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 毛玻璃效果 */</span></span><br><span class="line"><span class="selector-class">.card-widget</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">0.7</span>);</span><br><span class="line">  <span class="attribute">backdrop-filter</span>: <span class="built_in">blur</span>(<span class="number">20px</span>);</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">16px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 卡片悬浮效果 */</span></span><br><span class="line"><span class="selector-class">.card-widget</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-<span class="number">5px</span>);</span><br><span class="line">  <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">10px</span> <span class="number">30px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="引入自定义CSS"><a href="#引入自定义CSS" class="headerlink" title="引入自定义CSS"></a>引入自定义CSS</h3><p>在 <code>_config.butterfly.yml</code> 中：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">inject:</span></span><br><span class="line">  <span class="attr">head:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&lt;link</span> <span class="string">rel=&quot;stylesheet&quot;</span> <span class="string">href=&quot;/css/custom.css&quot;&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="六、部署到GitHub-Pages"><a href="#六、部署到GitHub-Pages" class="headerlink" title="六、部署到GitHub Pages"></a>六、部署到GitHub Pages</h2><h3 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h3><p>在GitHub创建仓库：<code>username.github.io</code></p>
-<h3 id="配置部署"><a href="#配置部署" class="headerlink" title="配置部署"></a>配置部署</h3><p>安装部署插件：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-
-<p>编辑 <code>_config.yml</code>：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@github.com:username/username.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo deploy</span><br></pre></td></tr></table></figure>
-
-<h2 id="七、进阶配置"><a href="#七、进阶配置" class="headerlink" title="七、进阶配置"></a>七、进阶配置</h2><h3 id="安装实用插件"><a href="#安装实用插件" class="headerlink" title="安装实用插件"></a>安装实用插件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 站点地图</span></span><br><span class="line">npm install hexo-generator-sitemap --save</span><br><span class="line"></span><br><span class="line"><span class="comment"># RSS订阅</span></span><br><span class="line">npm install hexo-generator-feed --save</span><br><span class="line"></span><br><span class="line"><span class="comment"># 字数统计</span></span><br><span class="line">npm install hexo-wordcount --save</span><br></pre></td></tr></table></figure>
-
-<h3 id="配置SEO"><a href="#配置SEO" class="headerlink" title="配置SEO"></a>配置SEO</h3><p>在 <code>_config.yml</code> 中添加：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">sitemap:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">sitemap.xml</span></span><br><span class="line"></span><br><span class="line"><span class="attr">feed:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">atom</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">atom.xml</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>恭喜你！现在你拥有了一个精美的个人博客。接下来要做的就是：</p>
-<ol>
-<li>📝 持续输出高质量内容</li>
-<li>🎨 根据个人喜好调整样式</li>
-<li>📢 分享给更多人看到</li>
-</ol>
-<hr>
-<blockquote>
-<p>如果这篇教程对你有帮助，欢迎点赞分享！</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>博客搭建</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>博客</tag>
-        <tag>Butterfly</tag>
-        <tag>教程</tag>
       </tags>
   </entry>
   <entry>
@@ -367,6 +254,119 @@
         <tag>异步编程</tag>
         <tag>Promise</tag>
         <tag>async/await</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>搭建个人博客完整指南 - Hexo + Butterfly主题</title>
+    <url>/2025/11/15/hexo-butterfly-blog-guide/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>拥有一个个人博客是每个程序员的标配。今天我来分享如何从零搭建一个像本站一样精美的个人博客！</p>
+<span id="more"></span>
+
+<h2 id="一、环境准备"><a href="#一、环境准备" class="headerlink" title="一、环境准备"></a>一、环境准备</h2><h3 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h3><p>访问 <a href="https://nodejs.org/">Node.js官网</a> 下载LTS版本。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 验证安装</span></span><br><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><p>访问 <a href="https://git-scm.com/">Git官网</a> 下载安装。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 验证安装</span></span><br><span class="line">git --version</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证安装</span></span><br><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
+
+<h2 id="二、创建博客"><a href="#二、创建博客" class="headerlink" title="二、创建博客"></a>二、创建博客</h2><h3 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init my-blog</span><br><span class="line"><span class="built_in">cd</span> my-blog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+<h3 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">my-blog/</span><br><span class="line">├── _config.yml      # 站点配置</span><br><span class="line">├── package.json     # 依赖配置</span><br><span class="line">├── scaffolds/       # 模板文件夹</span><br><span class="line">├── source/          # 资源文件夹</span><br><span class="line">│   ├── _posts/      # 文章</span><br><span class="line">│   └── _drafts/     # 草稿</span><br><span class="line">└── themes/          # 主题文件夹</span><br></pre></td></tr></table></figure>
+
+<h3 id="基础命令"><a href="#基础命令" class="headerlink" title="基础命令"></a>基础命令</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new <span class="string">&quot;文章标题&quot;</span>    <span class="comment"># 创建文章</span></span><br><span class="line">hexo clean            <span class="comment"># 清理缓存</span></span><br><span class="line">hexo generate         <span class="comment"># 生成静态文件</span></span><br><span class="line">hexo server           <span class="comment"># 本地预览</span></span><br><span class="line">hexo deploy           <span class="comment"># 部署</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="三、安装Butterfly主题"><a href="#三、安装Butterfly主题" class="headerlink" title="三、安装Butterfly主题"></a>三、安装Butterfly主题</h2><h3 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-theme-butterfly --save</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建主题配置"><a href="#创建主题配置" class="headerlink" title="创建主题配置"></a>创建主题配置</h3><p>在项目根目录创建 <code>_config.butterfly.yml</code>：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 导航栏</span></span><br><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="string">首页:</span> <span class="string">/</span> <span class="string">||</span> <span class="string">fas</span> <span class="string">fa-home</span></span><br><span class="line">  <span class="string">归档:</span> <span class="string">/archives/</span> <span class="string">||</span> <span class="string">fas</span> <span class="string">fa-archive</span></span><br><span class="line">  <span class="string">标签:</span> <span class="string">/tags/</span> <span class="string">||</span> <span class="string">fas</span> <span class="string">fa-tags</span></span><br><span class="line">  <span class="string">分类:</span> <span class="string">/categories/</span> <span class="string">||</span> <span class="string">fas</span> <span class="string">fa-folder-open</span></span><br><span class="line">  <span class="string">关于:</span> <span class="string">/about/</span> <span class="string">||</span> <span class="string">fas</span> <span class="string">fa-user</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 头像</span></span><br><span class="line"><span class="attr">avatar:</span></span><br><span class="line">  <span class="attr">img:</span> <span class="string">/images/avatar.jpg</span></span><br><span class="line">  <span class="attr">effect:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 暗黑模式</span></span><br><span class="line"><span class="attr">darkmode:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">button:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="修改站点配置"><a href="#修改站点配置" class="headerlink" title="修改站点配置"></a>修改站点配置</h3><p>编辑 <code>_config.yml</code>：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">butterfly</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="四、创建必要页面"><a href="#四、创建必要页面" class="headerlink" title="四、创建必要页面"></a>四、创建必要页面</h2><h3 id="标签页"><a href="#标签页" class="headerlink" title="标签页"></a>标签页</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new page tags</span><br></pre></td></tr></table></figure>
+
+<p>编辑 <code>source/tags/index.md</code>：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">标签</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">tags</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="分类页"><a href="#分类页" class="headerlink" title="分类页"></a>分类页</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new page categories</span><br></pre></td></tr></table></figure>
+
+<h3 id="关于页"><a href="#关于页" class="headerlink" title="关于页"></a>关于页</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new page about</span><br></pre></td></tr></table></figure>
+
+<h2 id="五、自定义美化"><a href="#五、自定义美化" class="headerlink" title="五、自定义美化"></a>五、自定义美化</h2><h3 id="创建自定义CSS"><a href="#创建自定义CSS" class="headerlink" title="创建自定义CSS"></a>创建自定义CSS</h3><p>创建 <code>source/css/custom.css</code>：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 毛玻璃效果 */</span></span><br><span class="line"><span class="selector-class">.card-widget</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">0.7</span>);</span><br><span class="line">  <span class="attribute">backdrop-filter</span>: <span class="built_in">blur</span>(<span class="number">20px</span>);</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">16px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 卡片悬浮效果 */</span></span><br><span class="line"><span class="selector-class">.card-widget</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-<span class="number">5px</span>);</span><br><span class="line">  <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">10px</span> <span class="number">30px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="引入自定义CSS"><a href="#引入自定义CSS" class="headerlink" title="引入自定义CSS"></a>引入自定义CSS</h3><p>在 <code>_config.butterfly.yml</code> 中：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">inject:</span></span><br><span class="line">  <span class="attr">head:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&lt;link</span> <span class="string">rel=&quot;stylesheet&quot;</span> <span class="string">href=&quot;/css/custom.css&quot;&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="六、部署到GitHub-Pages"><a href="#六、部署到GitHub-Pages" class="headerlink" title="六、部署到GitHub Pages"></a>六、部署到GitHub Pages</h2><h3 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h3><p>在GitHub创建仓库：<code>username.github.io</code></p>
+<h3 id="配置部署"><a href="#配置部署" class="headerlink" title="配置部署"></a>配置部署</h3><p>安装部署插件：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<p>编辑 <code>_config.yml</code>：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@github.com:username/username.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo deploy</span><br></pre></td></tr></table></figure>
+
+<h2 id="七、进阶配置"><a href="#七、进阶配置" class="headerlink" title="七、进阶配置"></a>七、进阶配置</h2><h3 id="安装实用插件"><a href="#安装实用插件" class="headerlink" title="安装实用插件"></a>安装实用插件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 站点地图</span></span><br><span class="line">npm install hexo-generator-sitemap --save</span><br><span class="line"></span><br><span class="line"><span class="comment"># RSS订阅</span></span><br><span class="line">npm install hexo-generator-feed --save</span><br><span class="line"></span><br><span class="line"><span class="comment"># 字数统计</span></span><br><span class="line">npm install hexo-wordcount --save</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置SEO"><a href="#配置SEO" class="headerlink" title="配置SEO"></a>配置SEO</h3><p>在 <code>_config.yml</code> 中添加：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">sitemap:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">sitemap.xml</span></span><br><span class="line"></span><br><span class="line"><span class="attr">feed:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">atom</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">atom.xml</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>恭喜你！现在你拥有了一个精美的个人博客。接下来要做的就是：</p>
+<ol>
+<li>📝 持续输出高质量内容</li>
+<li>🎨 根据个人喜好调整样式</li>
+<li>📢 分享给更多人看到</li>
+</ol>
+<hr>
+<blockquote>
+<p>如果这篇教程对你有帮助，欢迎点赞分享！</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>博客搭建</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>博客</tag>
+        <tag>Butterfly</tag>
+        <tag>教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>我的第一篇博客</title>
+    <url>/2025/11/05/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<h1 id="🎉-欢迎来到我的博客"><a href="#🎉-欢迎来到我的博客" class="headerlink" title="🎉 欢迎来到我的博客"></a>🎉 欢迎来到我的博客</h1><p>这是我在 Hexo 上搭建的第一篇博客，记录下这个激动人心的时刻！</p>
+<h2 id="🚀-博客搭建历程"><a href="#🚀-博客搭建历程" class="headerlink" title="🚀 博客搭建历程"></a>🚀 博客搭建历程</h2><p>今天正式搭建了自己的个人博客，使用了以下技术栈：</p>
+<ul>
+<li><strong>静态生成器</strong>: Hexo 7.3.0</li>
+<li><strong>主题</strong>: Butterfly</li>
+<li><strong>托管平台</strong>: GitHub Pages</li>
+<li><strong>部署方式</strong>: Git 自动部署</li>
+</ul>
+<p>虽然过程中遇到了一些问题，但最终还是成功搭建完成！</p>
+<h2 id="✨-未来计划"><a href="#✨-未来计划" class="headerlink" title="✨ 未来计划"></a>✨ 未来计划</h2><ol>
+<li>分享技术学习心得</li>
+<li>记录项目开发经验</li>
+<li>探索前沿技术趋势</li>
+<li>结识更多技术爱好者</li>
+</ol>
+<h2 id="📞-联系方式"><a href="#📞-联系方式" class="headerlink" title="📞 联系方式"></a>📞 联系方式</h2><p>如果你对我的博客内容感兴趣，欢迎通过以下方式联系我：</p>
+<ul>
+<li>GitHub: <a href="https://github.com/wcz234">@wcz234</a></li>
+<li>邮箱: <a href="mailto:&#x77;&#x63;&#x7a;&#x32;&#x33;&#52;&#x40;&#x75;&#115;&#x65;&#x72;&#x73;&#x2e;&#x6e;&#111;&#114;&#x65;&#x70;&#x6c;&#x79;&#46;&#103;&#x69;&#116;&#x68;&#x75;&#98;&#46;&#99;&#x6f;&#x6d;">&#x77;&#x63;&#x7a;&#x32;&#x33;&#52;&#x40;&#x75;&#115;&#x65;&#x72;&#x73;&#x2e;&#x6e;&#111;&#114;&#x65;&#x70;&#x6c;&#x79;&#46;&#103;&#x69;&#116;&#x68;&#x75;&#98;&#46;&#99;&#x6f;&#x6d;</a></li>
+</ul>
+<hr>
+<p><strong>感谢您的访问，期待与您交流！</strong> 🎈</p>
+]]></content>
+      <categories>
+        <category>博客搭建</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>博客</tag>
+        <tag>首次搭建</tag>
       </tags>
   </entry>
 </search>
