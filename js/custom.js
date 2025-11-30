@@ -374,31 +374,41 @@
     </section>
     `;
 
+    // 插入逻辑
+    let inserted = false;
+    
     // 插入到 main#content-inner 之前（最可靠）
     const contentInner = document.getElementById('content-inner');
     if (contentInner) {
       contentInner.insertAdjacentHTML('beforebegin', heroHTML);
       console.log('[WeatherHero] 成功插入到 #content-inner 之前');
-      return;
+      inserted = true;
     }
     
     // 备选：插入到 #page-header 之后
-    const pageHeader = document.getElementById('page-header');
-    if (pageHeader) {
-      pageHeader.insertAdjacentHTML('afterend', heroHTML);
-      console.log('[WeatherHero] 成功插入到 #page-header 之后');
-      return;
+    if (!inserted) {
+      const pageHeader = document.getElementById('page-header');
+      if (pageHeader) {
+        pageHeader.insertAdjacentHTML('afterend', heroHTML);
+        console.log('[WeatherHero] 成功插入到 #page-header 之后');
+        inserted = true;
+      }
     }
     
     // 备选：插入到 body-wrap 开头
-    const bodyWrap = document.getElementById('body-wrap');
-    if (bodyWrap) {
-      bodyWrap.insertAdjacentHTML('afterbegin', heroHTML);
-      console.log('[WeatherHero] 成功插入到 #body-wrap 开头');
-      return;
+    if (!inserted) {
+      const bodyWrap = document.getElementById('body-wrap');
+      if (bodyWrap) {
+        bodyWrap.insertAdjacentHTML('afterbegin', heroHTML);
+        console.log('[WeatherHero] 成功插入到 #body-wrap 开头');
+        inserted = true;
+      }
     }
     
-    console.log('[WeatherHero] 未找到合适的插入位置');
+    if (!inserted) {
+      console.log('[WeatherHero] 未找到合适的插入位置');
+      return;
+    }
 
     // 绑定滚动提示点击事件
     setTimeout(() => {
@@ -418,13 +428,18 @@
     }, 100);
 
     // 异步获取实时天气并更新
+    console.log('[WeatherHero] 开始获取实时天气...');
     fetchRealWeather().then(data => {
+      console.log('[WeatherHero] 获取到天气数据:', data);
       const cityEl = document.getElementById('weather-city-name');
       const tempEl = document.querySelector('.weather-temp-number');
       const condEl = document.querySelector('.weather-condition');
       const detailEls = document.querySelectorAll('.weather-detail-value');
       
-      if (cityEl) cityEl.textContent = data.city;
+      if (cityEl) {
+        console.log('[WeatherHero] 更新城市名:', data.city);
+        cityEl.textContent = data.city;
+      }
       if (tempEl) tempEl.textContent = data.weather.temp;
       if (condEl) condEl.textContent = data.weather.condition;
       if (detailEls[0]) detailEls[0].textContent = data.weather.humidity + '%';
@@ -432,7 +447,9 @@
       if (detailEls[2]) detailEls[2].textContent = data.weather.aqiText || '--';
       if (detailEls[3]) detailEls[3].textContent = data.weather.visibility + ' km';
       
-      console.log('[WeatherHero] 天气数据已更新');
+      console.log('[WeatherHero] 天气数据更新完成');
+    }).catch(err => {
+      console.error('[WeatherHero] 天气更新失败:', err);
     });
   }
 
