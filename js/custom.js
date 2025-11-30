@@ -192,7 +192,7 @@
   let cachedWeather = { temp: '8', condition: '晴', humidity: '65', wind: '北风 2级', aqi: 0, aqiText: '--', visibility: '10' };
   let cachedCity = '杭州';
 
-  // 获取实时天气（浏览器定位 + Open-Meteo天气，优化速度）
+  // 获取实时天气（浏览器定位 + Open-Meteo天气）
   async function fetchRealWeather() {
     try {
       // 1. 浏览器定位（3秒超时）
@@ -201,10 +201,22 @@
         navigator.geolocation.getCurrentPosition(resolve, reject, { timeout: 3000, maximumAge: 300000 });
       });
       
-      const lat = pos.coords.latitude.toFixed(2);
-      const lon = pos.coords.longitude.toFixed(2);
-      cachedCity = '当前位置';
+      const lat = pos.coords.latitude.toFixed(4);
+      const lon = pos.coords.longitude.toFixed(4);
       console.log('[WeatherHero] 定位成功:', lat, lon);
+      
+      // 2. 反向地理编码获取城市名（并行请求）
+      const cityPromise = fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json&accept-language=zh`)
+        .then(r => r.json())
+        .then(data => {
+          const addr = data.address || {};
+          return addr.city || addr.town || addr.county || addr.state || '未知';
+        })
+        .catch(() => '未知');
+      
+      // 同时获取城市名
+      cachedCity = await cityPromise;
+      console.log('[WeatherHero] 城市:', cachedCity);
 
       // 2. Open-Meteo天气API（免费、快速、无需key）
       const weatherRes = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m,wind_direction_10m,visibility&timezone=auto`);

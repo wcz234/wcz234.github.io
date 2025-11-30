@@ -1,6 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>我的第一篇博客</title>
+    <url>/2025/11/05/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<h1 id="🎉-欢迎来到我的博客"><a href="#🎉-欢迎来到我的博客" class="headerlink" title="🎉 欢迎来到我的博客"></a>🎉 欢迎来到我的博客</h1><p>这是我在 Hexo 上搭建的第一篇博客，记录下这个激动人心的时刻！</p>
+<h2 id="🚀-博客搭建历程"><a href="#🚀-博客搭建历程" class="headerlink" title="🚀 博客搭建历程"></a>🚀 博客搭建历程</h2><p>今天正式搭建了自己的个人博客，使用了以下技术栈：</p>
+<ul>
+<li><strong>静态生成器</strong>: Hexo 7.3.0</li>
+<li><strong>主题</strong>: Butterfly</li>
+<li><strong>托管平台</strong>: GitHub Pages</li>
+<li><strong>部署方式</strong>: Git 自动部署</li>
+</ul>
+<p>虽然过程中遇到了一些问题，但最终还是成功搭建完成！</p>
+<h2 id="✨-未来计划"><a href="#✨-未来计划" class="headerlink" title="✨ 未来计划"></a>✨ 未来计划</h2><ol>
+<li>分享技术学习心得</li>
+<li>记录项目开发经验</li>
+<li>探索前沿技术趋势</li>
+<li>结识更多技术爱好者</li>
+</ol>
+<h2 id="📞-联系方式"><a href="#📞-联系方式" class="headerlink" title="📞 联系方式"></a>📞 联系方式</h2><p>如果你对我的博客内容感兴趣，欢迎通过以下方式联系我：</p>
+<ul>
+<li>GitHub: <a href="https://github.com/wcz234">@wcz234</a></li>
+<li>邮箱: <a href="mailto:&#x77;&#x63;&#122;&#x32;&#x33;&#x34;&#64;&#117;&#115;&#101;&#114;&#115;&#46;&#110;&#x6f;&#114;&#101;&#112;&#x6c;&#x79;&#46;&#x67;&#105;&#x74;&#104;&#117;&#98;&#46;&#99;&#x6f;&#x6d;">&#x77;&#x63;&#122;&#x32;&#x33;&#x34;&#64;&#117;&#115;&#101;&#114;&#115;&#46;&#110;&#x6f;&#114;&#101;&#112;&#x6c;&#x79;&#46;&#x67;&#105;&#x74;&#104;&#117;&#98;&#46;&#99;&#x6f;&#x6d;</a></li>
+</ul>
+<hr>
+<p><strong>感谢您的访问，期待与您交流！</strong> 🎈</p>
+]]></content>
+      <categories>
+        <category>博客搭建</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>博客</tag>
+        <tag>首次搭建</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Git工作流最佳实践 - 从入门到精通</title>
     <url>/2025/11/18/git-workflow-best-practices/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Git是现代软件开发必备的版本控制工具。但很多人只会基础的 <code>add</code>、<code>commit</code>、<code>push</code>，遇到复杂场景就懵了。</p>
@@ -188,75 +223,6 @@
       </tags>
   </entry>
   <entry>
-    <title>现代CSS技巧 - 打造Apple风格毛玻璃效果</title>
-    <url>/2025/11/20/modern-css-glassmorphism/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>如果你浏览过Apple官网，一定会被那种精致的毛玻璃效果所吸引。这种设计语言被称为 <strong>Glassmorphism</strong>（玻璃态设计），它能让界面看起来更有层次感和现代感。</p>
-<p>今天我们就来深入学习如何用CSS实现这种效果！</p>
-<span id="more"></span>
-
-<h2 id="核心技术：backdrop-filter"><a href="#核心技术：backdrop-filter" class="headerlink" title="核心技术：backdrop-filter"></a>核心技术：backdrop-filter</h2><p>实现毛玻璃效果的核心是 <code>backdrop-filter</code> 属性，它可以对元素背后的内容应用滤镜效果。</p>
-<h3 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.glass</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">0.7</span>);</span><br><span class="line">  <span class="attribute">backdrop-filter</span>: <span class="built_in">blur</span>(<span class="number">20px</span>);</span><br><span class="line">  -webkit-<span class="attribute">backdrop-filter</span>: <span class="built_in">blur</span>(<span class="number">20px</span>); <span class="comment">/* Safari兼容 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="进阶效果"><a href="#进阶效果" class="headerlink" title="进阶效果"></a>进阶效果</h3><p>Apple的毛玻璃效果不仅仅是模糊，还有饱和度增强：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.apple-glass</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">0.72</span>);</span><br><span class="line">  <span class="attribute">backdrop-filter</span>: <span class="built_in">saturate</span>(<span class="number">180%</span>) <span class="built_in">blur</span>(<span class="number">20px</span>);</span><br><span class="line">  -webkit-<span class="attribute">backdrop-filter</span>: <span class="built_in">saturate</span>(<span class="number">180%</span>) <span class="built_in">blur</span>(<span class="number">20px</span>);</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">0.2</span>);</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">16px</span>;</span><br><span class="line">  <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">8px</span> <span class="number">32px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="实战：导航栏毛玻璃效果"><a href="#实战：导航栏毛玻璃效果" class="headerlink" title="实战：导航栏毛玻璃效果"></a>实战：导航栏毛玻璃效果</h2><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.navbar</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: fixed;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">60px</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 毛玻璃效果 */</span></span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">0.7</span>);</span><br><span class="line">  <span class="attribute">backdrop-filter</span>: <span class="built_in">saturate</span>(<span class="number">180%</span>) <span class="built_in">blur</span>(<span class="number">20px</span>);</span><br><span class="line">  -webkit-<span class="attribute">backdrop-filter</span>: <span class="built_in">saturate</span>(<span class="number">180%</span>) <span class="built_in">blur</span>(<span class="number">20px</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 边框和阴影 */</span></span><br><span class="line">  <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.1</span>);</span><br><span class="line">  <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">2px</span> <span class="number">10px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.05</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 过渡动画 */</span></span><br><span class="line">  <span class="attribute">transition</span>: all <span class="number">0.3s</span> ease;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 滚动时增强效果 */</span></span><br><span class="line"><span class="selector-class">.navbar</span><span class="selector-class">.scrolled</span> &#123;</span><br><span class="line">  <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">4px</span> <span class="number">20px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="暗黑模式适配"><a href="#暗黑模式适配" class="headerlink" title="暗黑模式适配"></a>暗黑模式适配</h2><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 暗黑模式下的毛玻璃 */</span></span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">prefers-color-scheme</span>: dark) &#123;</span><br><span class="line">  <span class="selector-class">.glass</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">30</span>, <span class="number">30</span>, <span class="number">30</span>, <span class="number">0.8</span>);</span><br><span class="line">    <span class="attribute">border-color</span>: <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">0.1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 或者使用CSS变量 */</span></span><br><span class="line"><span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">  <span class="attr">--glass-bg</span>: <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">0.7</span>);</span><br><span class="line">  <span class="attr">--glass-border</span>: <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-attr">[data-theme=<span class="string">&#x27;dark&#x27;</span>]</span> &#123;</span><br><span class="line">  <span class="attr">--glass-bg</span>: <span class="built_in">rgba</span>(<span class="number">30</span>, <span class="number">30</span>, <span class="number">30</span>, <span class="number">0.8</span>);</span><br><span class="line">  <span class="attr">--glass-border</span>: <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">0.1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="兼容性说明"><a href="#兼容性说明" class="headerlink" title="兼容性说明"></a>兼容性说明</h2><p><code>backdrop-filter</code> 的浏览器支持情况：</p>
-<table>
-<thead>
-<tr>
-<th>浏览器</th>
-<th>版本</th>
-<th>支持情况</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Chrome</td>
-<td>76+</td>
-<td>✅ 支持</td>
-</tr>
-<tr>
-<td>Safari</td>
-<td>9+</td>
-<td>✅ 支持</td>
-</tr>
-<tr>
-<td>Firefox</td>
-<td>103+</td>
-<td>✅ 支持</td>
-</tr>
-<tr>
-<td>Edge</td>
-<td>79+</td>
-<td>✅ 支持</td>
-</tr>
-</tbody></table>
-<h2 id="性能优化建议"><a href="#性能优化建议" class="headerlink" title="性能优化建议"></a>性能优化建议</h2><ol>
-<li><strong>避免过度使用</strong> - 毛玻璃效果比较消耗性能</li>
-<li><strong>减少嵌套</strong> - 不要在毛玻璃元素内再嵌套毛玻璃</li>
-<li><strong>使用will-change</strong> - 对动画元素使用 <code>will-change: transform</code></li>
-<li><strong>移动端谨慎</strong> - 在低端设备上考虑降级处理</li>
-</ol>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>毛玻璃效果是现代UI设计的重要元素，掌握 <code>backdrop-filter</code> 可以让你的网站瞬间提升档次。记得关注兼容性和性能问题！</p>
-<hr>
-<blockquote>
-<p>本文是「现代CSS技巧」系列的第一篇，后续会继续分享更多实用的CSS技巧。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>前端开发</category>
-      </categories>
-      <tags>
-        <tag>CSS</tag>
-        <tag>前端</tag>
-        <tag>UI设计</tag>
-        <tag>Apple风格</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>搭建个人博客完整指南 - Hexo + Butterfly主题</title>
     <url>/2025/11/15/hexo-butterfly-blog-guide/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>拥有一个个人博客是每个程序员的标配。今天我来分享如何从零搭建一个像本站一样精美的个人博客！</p>
@@ -335,38 +301,72 @@
       </tags>
   </entry>
   <entry>
-    <title>我的第一篇博客</title>
-    <url>/2025/11/05/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<h1 id="🎉-欢迎来到我的博客"><a href="#🎉-欢迎来到我的博客" class="headerlink" title="🎉 欢迎来到我的博客"></a>🎉 欢迎来到我的博客</h1><p>这是我在 Hexo 上搭建的第一篇博客，记录下这个激动人心的时刻！</p>
-<h2 id="🚀-博客搭建历程"><a href="#🚀-博客搭建历程" class="headerlink" title="🚀 博客搭建历程"></a>🚀 博客搭建历程</h2><p>今天正式搭建了自己的个人博客，使用了以下技术栈：</p>
-<ul>
-<li><strong>静态生成器</strong>: Hexo 7.3.0</li>
-<li><strong>主题</strong>: Butterfly</li>
-<li><strong>托管平台</strong>: GitHub Pages</li>
-<li><strong>部署方式</strong>: Git 自动部署</li>
-</ul>
-<p>虽然过程中遇到了一些问题，但最终还是成功搭建完成！</p>
-<h2 id="✨-未来计划"><a href="#✨-未来计划" class="headerlink" title="✨ 未来计划"></a>✨ 未来计划</h2><ol>
-<li>分享技术学习心得</li>
-<li>记录项目开发经验</li>
-<li>探索前沿技术趋势</li>
-<li>结识更多技术爱好者</li>
+    <title>现代CSS技巧 - 打造Apple风格毛玻璃效果</title>
+    <url>/2025/11/20/modern-css-glassmorphism/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>如果你浏览过Apple官网，一定会被那种精致的毛玻璃效果所吸引。这种设计语言被称为 <strong>Glassmorphism</strong>（玻璃态设计），它能让界面看起来更有层次感和现代感。</p>
+<p>今天我们就来深入学习如何用CSS实现这种效果！</p>
+<span id="more"></span>
+
+<h2 id="核心技术：backdrop-filter"><a href="#核心技术：backdrop-filter" class="headerlink" title="核心技术：backdrop-filter"></a>核心技术：backdrop-filter</h2><p>实现毛玻璃效果的核心是 <code>backdrop-filter</code> 属性，它可以对元素背后的内容应用滤镜效果。</p>
+<h3 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.glass</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">0.7</span>);</span><br><span class="line">  <span class="attribute">backdrop-filter</span>: <span class="built_in">blur</span>(<span class="number">20px</span>);</span><br><span class="line">  -webkit-<span class="attribute">backdrop-filter</span>: <span class="built_in">blur</span>(<span class="number">20px</span>); <span class="comment">/* Safari兼容 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="进阶效果"><a href="#进阶效果" class="headerlink" title="进阶效果"></a>进阶效果</h3><p>Apple的毛玻璃效果不仅仅是模糊，还有饱和度增强：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.apple-glass</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">0.72</span>);</span><br><span class="line">  <span class="attribute">backdrop-filter</span>: <span class="built_in">saturate</span>(<span class="number">180%</span>) <span class="built_in">blur</span>(<span class="number">20px</span>);</span><br><span class="line">  -webkit-<span class="attribute">backdrop-filter</span>: <span class="built_in">saturate</span>(<span class="number">180%</span>) <span class="built_in">blur</span>(<span class="number">20px</span>);</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">0.2</span>);</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">16px</span>;</span><br><span class="line">  <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">8px</span> <span class="number">32px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="实战：导航栏毛玻璃效果"><a href="#实战：导航栏毛玻璃效果" class="headerlink" title="实战：导航栏毛玻璃效果"></a>实战：导航栏毛玻璃效果</h2><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.navbar</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: fixed;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">60px</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 毛玻璃效果 */</span></span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">0.7</span>);</span><br><span class="line">  <span class="attribute">backdrop-filter</span>: <span class="built_in">saturate</span>(<span class="number">180%</span>) <span class="built_in">blur</span>(<span class="number">20px</span>);</span><br><span class="line">  -webkit-<span class="attribute">backdrop-filter</span>: <span class="built_in">saturate</span>(<span class="number">180%</span>) <span class="built_in">blur</span>(<span class="number">20px</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 边框和阴影 */</span></span><br><span class="line">  <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.1</span>);</span><br><span class="line">  <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">2px</span> <span class="number">10px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.05</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 过渡动画 */</span></span><br><span class="line">  <span class="attribute">transition</span>: all <span class="number">0.3s</span> ease;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 滚动时增强效果 */</span></span><br><span class="line"><span class="selector-class">.navbar</span><span class="selector-class">.scrolled</span> &#123;</span><br><span class="line">  <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">4px</span> <span class="number">20px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="暗黑模式适配"><a href="#暗黑模式适配" class="headerlink" title="暗黑模式适配"></a>暗黑模式适配</h2><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 暗黑模式下的毛玻璃 */</span></span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">prefers-color-scheme</span>: dark) &#123;</span><br><span class="line">  <span class="selector-class">.glass</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">30</span>, <span class="number">30</span>, <span class="number">30</span>, <span class="number">0.8</span>);</span><br><span class="line">    <span class="attribute">border-color</span>: <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">0.1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 或者使用CSS变量 */</span></span><br><span class="line"><span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">  <span class="attr">--glass-bg</span>: <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">0.7</span>);</span><br><span class="line">  <span class="attr">--glass-border</span>: <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-attr">[data-theme=<span class="string">&#x27;dark&#x27;</span>]</span> &#123;</span><br><span class="line">  <span class="attr">--glass-bg</span>: <span class="built_in">rgba</span>(<span class="number">30</span>, <span class="number">30</span>, <span class="number">30</span>, <span class="number">0.8</span>);</span><br><span class="line">  <span class="attr">--glass-border</span>: <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">0.1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="兼容性说明"><a href="#兼容性说明" class="headerlink" title="兼容性说明"></a>兼容性说明</h2><p><code>backdrop-filter</code> 的浏览器支持情况：</p>
+<table>
+<thead>
+<tr>
+<th>浏览器</th>
+<th>版本</th>
+<th>支持情况</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Chrome</td>
+<td>76+</td>
+<td>✅ 支持</td>
+</tr>
+<tr>
+<td>Safari</td>
+<td>9+</td>
+<td>✅ 支持</td>
+</tr>
+<tr>
+<td>Firefox</td>
+<td>103+</td>
+<td>✅ 支持</td>
+</tr>
+<tr>
+<td>Edge</td>
+<td>79+</td>
+<td>✅ 支持</td>
+</tr>
+</tbody></table>
+<h2 id="性能优化建议"><a href="#性能优化建议" class="headerlink" title="性能优化建议"></a>性能优化建议</h2><ol>
+<li><strong>避免过度使用</strong> - 毛玻璃效果比较消耗性能</li>
+<li><strong>减少嵌套</strong> - 不要在毛玻璃元素内再嵌套毛玻璃</li>
+<li><strong>使用will-change</strong> - 对动画元素使用 <code>will-change: transform</code></li>
+<li><strong>移动端谨慎</strong> - 在低端设备上考虑降级处理</li>
 </ol>
-<h2 id="📞-联系方式"><a href="#📞-联系方式" class="headerlink" title="📞 联系方式"></a>📞 联系方式</h2><p>如果你对我的博客内容感兴趣，欢迎通过以下方式联系我：</p>
-<ul>
-<li>GitHub: <a href="https://github.com/wcz234">@wcz234</a></li>
-<li>邮箱: <a href="mailto:&#x77;&#x63;&#x7a;&#50;&#51;&#x34;&#64;&#117;&#x73;&#x65;&#x72;&#115;&#46;&#x6e;&#111;&#114;&#x65;&#x70;&#x6c;&#121;&#46;&#103;&#x69;&#x74;&#104;&#117;&#98;&#46;&#99;&#x6f;&#x6d;">&#x77;&#x63;&#x7a;&#50;&#51;&#x34;&#64;&#117;&#x73;&#x65;&#x72;&#115;&#46;&#x6e;&#111;&#114;&#x65;&#x70;&#x6c;&#121;&#46;&#103;&#x69;&#x74;&#104;&#117;&#98;&#46;&#99;&#x6f;&#x6d;</a></li>
-</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>毛玻璃效果是现代UI设计的重要元素，掌握 <code>backdrop-filter</code> 可以让你的网站瞬间提升档次。记得关注兼容性和性能问题！</p>
 <hr>
-<p><strong>感谢您的访问，期待与您交流！</strong> 🎈</p>
+<blockquote>
+<p>本文是「现代CSS技巧」系列的第一篇，后续会继续分享更多实用的CSS技巧。</p>
+</blockquote>
 ]]></content>
       <categories>
-        <category>博客搭建</category>
+        <category>前端开发</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
-        <tag>博客</tag>
-        <tag>首次搭建</tag>
+        <tag>CSS</tag>
+        <tag>前端</tag>
+        <tag>UI设计</tag>
+        <tag>Apple风格</tag>
       </tags>
   </entry>
 </search>
