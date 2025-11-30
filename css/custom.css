@@ -167,24 +167,39 @@ time,
   color: var(--wz-surface) !important;
 }
 
-/* ===== 卡片通用样式 - 高级棉纸质感 ===== */
+/* ===== 父级容器透明化 ===== */
 #content-inner,
+#recent-posts,
+#aside-content,
+.layout,
+main,
+.recent-posts,
+#body-wrap,
+.container {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+#content-inner::before,
+#recent-posts::before {
+  display: none !important;
+}
+
+/* ===== 卡片通用样式 - 高级棉纸质感 ===== */
 .recent-post-item,
 .card-widget,
 #post,
-#page,
-.flink-list-card {
+#page {
   background: rgba(253, 253, 253, 0.98) !important;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border-radius: 2px !important;
+  border-radius: 12px !important;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
   position: relative;
   transition: all var(--wz-duration) var(--wz-ease);
 }
 
 /* 内层装饰边框 - V2.0更隐约 */
-#content-inner::before,
 .recent-post-item::before,
 .card-widget::before,
 #post::before,
@@ -198,6 +213,7 @@ time,
   border: 1px solid rgba(0, 0, 0, 0.05);
   pointer-events: none;
   z-index: 1;
+  border-radius: 8px;
 }
 
 /* ===== 文章卡片 ===== */
