@@ -192,74 +192,49 @@
   let cachedWeather = null;
   let cachedCity = '定位中...';
 
-  // 获取实时天气（基于IP定位）
+  // 高德地图API Key (免费申请: https://lbs.amap.com)
+  const AMAP_KEY = 'c1d8179f447796c8e5836ed5abd0f01e';
+
+  // 获取实时天气（基于IP定位 - 使用高德API，国内速度快）
   async function fetchRealWeather() {
     try {
-      // 1. 通过IP获取位置
-      const ipRes = await fetch('https://ipapi.co/json/');
+      // 1. 高德IP定位（极快，<100ms）
+      const ipRes = await fetch(`https://restapi.amap.com/v3/ip?key=${AMAP_KEY}`);
       const ipData = await ipRes.json();
-      const city = ipData.city || '未知';
+      
+      if (ipData.status !== '1') throw new Error('IP定位失败');
+      
+      const city = ipData.city || ipData.province || '未知';
+      const adcode = ipData.adcode;
       cachedCity = city;
-      console.log('[WeatherHero] IP定位城市:', city);
+      console.log('[WeatherHero] 高德定位:', city, adcode);
 
-      // 2. 获取天气数据 (使用 wttr.in 免费API)
-      const weatherRes = await fetch(`https://wttr.in/${encodeURIComponent(city)}?format=j1`);
+      // 2. 高德天气API（实时天气）
+      const weatherRes = await fetch(`https://restapi.amap.com/v3/weather/weatherInfo?key=${AMAP_KEY}&city=${adcode}&extensions=base`);
       const weatherData = await weatherRes.json();
       
-      const current = weatherData.current_condition[0];
-      const temp = parseInt(current.temp_C);
-      const humidity = parseInt(current.humidity);
-      const visibility = parseInt(current.visibility);
-      const windSpeed = parseInt(current.windspeedKmph);
-      const windDir = current.winddir16Point;
+      if (weatherData.status !== '1' || !weatherData.lives || !weatherData.lives[0]) {
+        throw new Error('天气获取失败');
+      }
       
-      // 风向转中文
-      const windDirMap = {
-        'N': '北风', 'NNE': '东北风', 'NE': '东北风', 'ENE': '东北风',
-        'E': '东风', 'ESE': '东南风', 'SE': '东南风', 'SSE': '东南风',
-        'S': '南风', 'SSW': '西南风', 'SW': '西南风', 'WSW': '西南风',
-        'W': '西风', 'WNW': '西北风', 'NW': '西北风', 'NNW': '西北风'
-      };
-      const windCN = windDirMap[windDir] || '微风';
-      const windLevel = windSpeed < 12 ? '2级' : windSpeed < 20 ? '3级' : windSpeed < 29 ? '4级' : '5级';
-      
-      // 天气描述转中文
-      const condCode = current.weatherCode;
-      const condMap = {
-        '113': '晴', '116': '多云', '119': '阴', '122': '阴',
-        '143': '雾', '176': '小雨', '179': '小雪', '182': '雨夹雪',
-        '185': '冻雨', '200': '雷阵雨', '227': '小雪', '230': '暴雪',
-        '248': '雾', '260': '雾', '263': '小雨', '266': '小雨',
-        '281': '冻雨', '284': '冻雨', '293': '小雨', '296': '小雨',
-        '299': '中雨', '302': '中雨', '305': '大雨', '308': '大雨',
-        '311': '冻雨', '314': '冻雨', '317': '雨夹雪', '320': '小雪',
-        '323': '小雪', '326': '小雪', '329': '中雪', '332': '中雪',
-        '335': '大雪', '338': '大雪', '350': '冰雹', '353': '阵雨',
-        '356': '大雨', '359': '暴雨', '362': '雨夹雪', '365': '雨夹雪',
-        '368': '小雪', '371': '中雪', '374': '冰雹', '377': '冰雹',
-        '386': '雷阵雨', '389': '雷暴', '392': '雷雪', '395': '大雪'
-      };
-      const condition = condMap[condCode] || '晴';
-
+      const live = weatherData.lives[0];
       cachedWeather = {
-        temp, condition, humidity,
-        wind: windCN + ' ' + windLevel,
-        aqi: 0, aqiText: '--',
-        visibility
+        temp: live.temperature,
+        condition: live.weather,
+        humidity: live.humidity,
+        wind: live.winddirection + '风 ' + live.windpower + '级',
+        aqi: 0,
+        aqiText: '--',
+        visibility: '--'
       };
       
       console.log('[WeatherHero] 天气获取成功:', cachedWeather);
       return { city: cachedCity, weather: cachedWeather };
     } catch (err) {
       console.error('[WeatherHero] 天气获取失败:', err);
-      // 返回默认数据
       return {
         city: '未知',
-        weather: {
-          temp: '--', condition: '获取中',
-          humidity: '--', wind: '--',
-          aqi: 0, aqiText: '--', visibility: '--'
-        }
+        weather: { temp: '--', condition: '--', humidity: '--', wind: '--', aqi: 0, aqiText: '--', visibility: '--' }
       };
     }
   }
