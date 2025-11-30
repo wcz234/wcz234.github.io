@@ -188,29 +188,88 @@
     return new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
   }
 
-  function getMockWeather() {
-    const m = new Date().getMonth() + 1;
-    let temp, cond;
-    if (m >= 12 || m <= 2) {
-      temp = Math.floor(Math.random() * 10) - 3;
-      cond = ['晴', '多云', '小雪', '阴'][Math.floor(Math.random() * 4)];
-    } else if (m >= 3 && m <= 5) {
-      temp = Math.floor(Math.random() * 15) + 10;
-      cond = ['晴', '多云', '小雨', '阴'][Math.floor(Math.random() * 4)];
-    } else if (m >= 6 && m <= 8) {
-      temp = Math.floor(Math.random() * 10) + 28;
-      cond = ['晴', '多云', '雷阵雨', '阴'][Math.floor(Math.random() * 4)];
-    } else {
-      temp = Math.floor(Math.random() * 15) + 12;
-      cond = ['晴', '多云', '小雨', '阴'][Math.floor(Math.random() * 4)];
+  // 缓存天气数据
+  let cachedWeather = null;
+  let cachedCity = '定位中...';
+
+  // 获取实时天气（基于IP定位）
+  async function fetchRealWeather() {
+    try {
+      // 1. 通过IP获取位置
+      const ipRes = await fetch('https://ipapi.co/json/');
+      const ipData = await ipRes.json();
+      const city = ipData.city || '未知';
+      cachedCity = city;
+      console.log('[WeatherHero] IP定位城市:', city);
+
+      // 2. 获取天气数据 (使用 wttr.in 免费API)
+      const weatherRes = await fetch(`https://wttr.in/${encodeURIComponent(city)}?format=j1`);
+      const weatherData = await weatherRes.json();
+      
+      const current = weatherData.current_condition[0];
+      const temp = parseInt(current.temp_C);
+      const humidity = parseInt(current.humidity);
+      const visibility = parseInt(current.visibility);
+      const windSpeed = parseInt(current.windspeedKmph);
+      const windDir = current.winddir16Point;
+      
+      // 风向转中文
+      const windDirMap = {
+        'N': '北风', 'NNE': '东北风', 'NE': '东北风', 'ENE': '东北风',
+        'E': '东风', 'ESE': '东南风', 'SE': '东南风', 'SSE': '东南风',
+        'S': '南风', 'SSW': '西南风', 'SW': '西南风', 'WSW': '西南风',
+        'W': '西风', 'WNW': '西北风', 'NW': '西北风', 'NNW': '西北风'
+      };
+      const windCN = windDirMap[windDir] || '微风';
+      const windLevel = windSpeed < 12 ? '2级' : windSpeed < 20 ? '3级' : windSpeed < 29 ? '4级' : '5级';
+      
+      // 天气描述转中文
+      const condCode = current.weatherCode;
+      const condMap = {
+        '113': '晴', '116': '多云', '119': '阴', '122': '阴',
+        '143': '雾', '176': '小雨', '179': '小雪', '182': '雨夹雪',
+        '185': '冻雨', '200': '雷阵雨', '227': '小雪', '230': '暴雪',
+        '248': '雾', '260': '雾', '263': '小雨', '266': '小雨',
+        '281': '冻雨', '284': '冻雨', '293': '小雨', '296': '小雨',
+        '299': '中雨', '302': '中雨', '305': '大雨', '308': '大雨',
+        '311': '冻雨', '314': '冻雨', '317': '雨夹雪', '320': '小雪',
+        '323': '小雪', '326': '小雪', '329': '中雪', '332': '中雪',
+        '335': '大雪', '338': '大雪', '350': '冰雹', '353': '阵雨',
+        '356': '大雨', '359': '暴雨', '362': '雨夹雪', '365': '雨夹雪',
+        '368': '小雪', '371': '中雪', '374': '冰雹', '377': '冰雹',
+        '386': '雷阵雨', '389': '雷暴', '392': '雷雪', '395': '大雪'
+      };
+      const condition = condMap[condCode] || '晴';
+
+      cachedWeather = {
+        temp, condition, humidity,
+        wind: windCN + ' ' + windLevel,
+        aqi: 0, aqiText: '--',
+        visibility
+      };
+      
+      console.log('[WeatherHero] 天气获取成功:', cachedWeather);
+      return { city: cachedCity, weather: cachedWeather };
+    } catch (err) {
+      console.error('[WeatherHero] 天气获取失败:', err);
+      // 返回默认数据
+      return {
+        city: '未知',
+        weather: {
+          temp: '--', condition: '获取中',
+          humidity: '--', wind: '--',
+          aqi: 0, aqiText: '--', visibility: '--'
+        }
+      };
     }
-    const aqi = Math.floor(Math.random() * 80) + 20;
+  }
+
+  function getMockWeather() {
+    if (cachedWeather) return cachedWeather;
     return {
-      temp, condition: cond,
-      humidity: Math.floor(Math.random() * 40) + 40,
-      wind: ['北风','东北风','东风','南风','西风'][Math.floor(Math.random()*5)] + ' ' + (Math.floor(Math.random()*4)+1) + '级',
-      aqi, aqiText: aqi <= 50 ? '优' : aqi <= 100 ? '良' : '轻度',
-      visibility: Math.floor(Math.random() * 20) + 5
+      temp: '--', condition: '加载中',
+      humidity: '--', wind: '--',
+      aqi: 0, aqiText: '--', visibility: '--'
     };
   }
 
@@ -229,7 +288,7 @@
     return false;
   }
 
-  function createWeatherHero() {
+  async function createWeatherHero() {
     // 只在首页创建
     if (!isHomePage()) {
       console.log('[WeatherHero] 非首页，跳过创建');
@@ -245,10 +304,13 @@
     console.log('[WeatherHero] 开始创建天气卡片');
 
     const poetry = getRandomPoetry();
-    const weather = getMockWeather();
     const stamp = getSeasonStamp();
     const dateEN = formatDateEN();
     const dateLunar = getLunarDate();
+    
+    // 先用占位符创建，然后异步更新
+    let cityName = '定位中...';
+    let weather = getMockWeather();
 
     const heroHTML = `
     <section class="weather-hero" id="weather-hero">
@@ -270,7 +332,7 @@
             <div class="corner-br"></div>
             <div class="weather-stamp"><span>${stamp}</span></div>
             <div class="weather-location">
-              <h1 class="weather-city">杭州</h1>
+              <h1 class="weather-city" id="weather-city-name">${cityName}</h1>
               <p class="weather-date">
                 <span>${dateEN}</span>
                 <span class="dot"></span>
@@ -354,6 +416,24 @@
         });
       }
     }, 100);
+
+    // 异步获取实时天气并更新
+    fetchRealWeather().then(data => {
+      const cityEl = document.getElementById('weather-city-name');
+      const tempEl = document.querySelector('.weather-temp-number');
+      const condEl = document.querySelector('.weather-condition');
+      const detailEls = document.querySelectorAll('.weather-detail-value');
+      
+      if (cityEl) cityEl.textContent = data.city;
+      if (tempEl) tempEl.textContent = data.weather.temp;
+      if (condEl) condEl.textContent = data.weather.condition;
+      if (detailEls[0]) detailEls[0].textContent = data.weather.humidity + '%';
+      if (detailEls[1]) detailEls[1].textContent = data.weather.wind;
+      if (detailEls[2]) detailEls[2].textContent = data.weather.aqiText || '--';
+      if (detailEls[3]) detailEls[3].textContent = data.weather.visibility + ' km';
+      
+      console.log('[WeatherHero] 天气数据已更新');
+    });
   }
 
   /* ========================================
