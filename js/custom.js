@@ -188,9 +188,9 @@
     return new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
   }
 
-  // 缓存天气数据
-  let cachedWeather = null;
-  let cachedCity = '定位中...';
+  // 缓存天气数据（默认显示，秒开）
+  let cachedWeather = { temp: '8', condition: '晴', humidity: '65', wind: '北风 2级', aqi: 0, aqiText: '--', visibility: '10' };
+  let cachedCity = '杭州';
 
   // 高德地图API Key (免费申请: https://lbs.amap.com)
   const AMAP_KEY = 'c1d8179f447796c8e5836ed5abd0f01e';
@@ -283,9 +283,9 @@
     const dateEN = formatDateEN();
     const dateLunar = getLunarDate();
     
-    // 先用占位符创建，然后异步更新
-    let cityName = '定位中...';
-    let weather = getMockWeather();
+    // 直接用默认值渲染（秒开），后台静默更新
+    let cityName = cachedCity;
+    let weather = cachedWeather;
 
     const heroHTML = `
     <section class="weather-hero" id="weather-hero">
