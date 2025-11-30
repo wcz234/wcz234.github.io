@@ -1517,3 +1517,532 @@ figure.highlight {
     transform: translateY(0);
   }
 }
+/* ===== 雪泥鸿爪 - 评论区书信风格 ===== */
+/* 评论区容器 - 透明背景 */
+#post-comment,
+.comment-wrap,
+#comments,
+#twikoo,
+.tk-comments,
+.v[data-class="v"],
+.valine-container,
+.gitalk-container,
+#waline,
+.wl-panel,
+.wl-cards {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* 评论输入区域 - 书信纸张感 */
+.comment-wrap .comment-textarea,
+.tk-input,
+.tk-submit,
+.v .vwrap,
+.v .veditor,
+.gitalk-container .gt-container,
+.wl-panel {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+/* 输入框 - 仅底部边框 */
+.comment-wrap textarea,
+.comment-wrap input,
+.tk-input .el-textarea__inner,
+.tk-input .el-input__inner,
+.v .vinput input,
+.v .veditor,
+.gitalk-container .gt-container input,
+.gitalk-container .gt-container textarea,
+.wl-editor,
+.wl-input input {
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid var(--wz-border) !important;
+  border-radius: 0 !important;
+  padding: 12px 4px !important;
+  font-family: var(--wz-font-cn) !important;
+  color: var(--wz-text-primary) !important;
+  transition: all 0.3s ease !important;
+  resize: none !important;
+}
+
+.comment-wrap textarea:focus,
+.comment-wrap input:focus,
+.tk-input .el-textarea__inner:focus,
+.tk-input .el-input__inner:focus,
+.v .vinput input:focus,
+.v .veditor:focus,
+.gitalk-container .gt-container input:focus,
+.gitalk-container .gt-container textarea:focus,
+.wl-editor:focus,
+.wl-input input:focus {
+  border-bottom-color: var(--wz-accent-red) !important;
+  outline: none !important;
+  box-shadow: 0 1px 0 var(--wz-accent-red) !important;
+}
+
+/* 提交按钮 - 朱砂印章风格 */
+.comment-wrap .submit-btn,
+.tk-submit .el-button,
+.v .vsubmit,
+.gitalk-container .gt-header-controls-btn,
+.wl-btn {
+  background: #b91c1c !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 2px !important;
+  padding: 10px 24px !important;
+  font-family: var(--wz-font-cn) !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.1em !important;
+  box-shadow: 2px 2px 0 rgba(185, 28, 28, 0.3) !important;
+  transition: all 0.2s ease !important;
+  position: relative !important;
+}
+
+.comment-wrap .submit-btn:hover,
+.tk-submit .el-button:hover,
+.v .vsubmit:hover,
+.gitalk-container .gt-header-controls-btn:hover,
+.wl-btn:hover {
+  background: #991b1b !important;
+  transform: translate(-1px, -1px) !important;
+  box-shadow: 3px 3px 0 rgba(185, 28, 28, 0.4) !important;
+}
+
+.comment-wrap .submit-btn:active,
+.tk-submit .el-button:active,
+.v .vsubmit:active,
+.gitalk-container .gt-header-controls-btn:active,
+.wl-btn:active {
+  transform: translate(1px, 1px) !important;
+  box-shadow: 1px 1px 0 rgba(185, 28, 28, 0.2) !important;
+}
+
+/* 评论列表 - 书信卡片 */
+.comment-wrap .comment-list,
+.tk-comments-container,
+.v .vcards,
+.gitalk-container .gt-comments,
+.wl-cards {
+  background: transparent !important;
+}
+
+/* 单条评论 - 信笺风格 */
+.comment-wrap .comment-item,
+.tk-comment,
+.v .vcard,
+.gitalk-container .gt-comment,
+.wl-card,
+.wl-item {
+  background: rgba(255, 255, 255, 0.02) !important;
+  border: none !important;
+  border-bottom: 1px dashed var(--wz-border) !important;
+  border-radius: 0 !important;
+  padding: 20px 0 !important;
+  margin: 0 !important;
+}
+
+.comment-wrap .comment-item:last-child,
+.tk-comment:last-child,
+.v .vcard:last-child,
+.gitalk-container .gt-comment:last-child,
+.wl-card:last-child,
+.wl-item:last-child {
+  border-bottom: none !important;
+}
+
+/* 评论头像 - 圆形印章感 */
+.comment-wrap .comment-avatar,
+.tk-avatar,
+.v .vimg,
+.gitalk-container .gt-ico,
+.wl-user img {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+  border: 2px solid var(--wz-border) !important;
+  padding: 2px !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  transition: all 0.3s ease !important;
+}
+
+.comment-wrap .comment-avatar:hover,
+.tk-avatar:hover,
+.v .vimg:hover,
+.gitalk-container .gt-ico:hover,
+.wl-user img:hover {
+  border-color: var(--wz-accent-red) !important;
+  transform: scale(1.05) !important;
+}
+
+/* 评论者昵称 */
+.comment-wrap .comment-nick,
+.tk-nick,
+.v .vcard .vnick,
+.gitalk-container .gt-comment-username,
+.wl-nick {
+  color: var(--wz-text-primary) !important;
+  font-weight: 500 !important;
+  font-family: var(--wz-font-cn) !important;
+}
+
+/* 评论时间 */
+.comment-wrap .comment-time,
+.tk-time,
+.v .vcard .vtime,
+.gitalk-container .gt-comment-date,
+.wl-time {
+  color: var(--wz-text-secondary) !important;
+  font-size: 0.8rem !important;
+}
+
+/* 评论内容 */
+.comment-wrap .comment-content,
+.tk-content,
+.v .vcard .vcontent,
+.gitalk-container .gt-comment-body,
+.wl-content {
+  color: var(--wz-text-primary) !important;
+  font-family: var(--wz-font-cn) !important;
+  line-height: 1.8 !important;
+}
+
+/* 回复按钮 */
+.comment-wrap .reply-btn,
+.tk-action-icon,
+.v .vcard .vat,
+.gitalk-container .gt-comment-reply,
+.wl-action button {
+  color: var(--wz-text-secondary) !important;
+  background: transparent !important;
+  border: none !important;
+  transition: color 0.2s ease !important;
+}
+
+.comment-wrap .reply-btn:hover,
+.tk-action-icon:hover,
+.v .vcard .vat:hover,
+.gitalk-container .gt-comment-reply:hover,
+.wl-action button:hover {
+  color: var(--wz-accent-red) !important;
+}
+
+/* 评论标题 */
+#post-comment .comment-head-title,
+.comment-wrap h1,
+.comment-wrap h2,
+.tk-comments-title {
+  font-family: var(--wz-font-cn) !important;
+  color: var(--wz-text-primary) !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.1em !important;
+  border-bottom: 1px solid var(--wz-border) !important;
+  padding-bottom: 15px !important;
+  margin-bottom: 25px !important;
+}
+
+/* 评论数统计 */
+.comment-wrap .comment-count,
+.tk-comments-count,
+#comment-count {
+  color: var(--wz-accent-red) !important;
+  font-weight: 500 !important;
+}
+
+/* ===== 微玻璃拟态 - 本地搜索美化 ===== */
+/* 搜索遮罩层 - 深色模糊 */
+#local-search,
+.search-dialog,
+#algolia-search {
+  background: rgba(15, 23, 42, 0.85) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+}
+
+/* 搜索弹窗 - 月光霜色 */
+#local-search .search-dialog,
+.search-dialog__body,
+#local-search-input,
+#algolia-search .search-dialog {
+  background: rgba(241, 245, 249, 0.96) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 
+              inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  overflow: hidden !important;
+}
+
+/* 搜索输入框 */
+#local-search-input input,
+.search-input,
+#algolia-search-input input {
+  background: rgba(255, 255, 255, 0.6) !important;
+  border: 1px solid var(--wz-border) !important;
+  border-radius: 8px !important;
+  padding: 14px 20px !important;
+  font-family: var(--wz-font-cn) !important;
+  font-size: 1rem !important;
+  color: var(--wz-text-primary) !important;
+  transition: all 0.3s ease !important;
+}
+
+#local-search-input input:focus,
+.search-input:focus,
+#algolia-search-input input:focus {
+  outline: none !important;
+  border-color: var(--wz-accent-red) !important;
+  box-shadow: 0 0 0 3px rgba(185, 28, 28, 0.1) !important;
+}
+
+#local-search-input input::placeholder,
+.search-input::placeholder {
+  color: var(--wz-text-secondary) !important;
+  font-family: var(--wz-font-cn) !important;
+}
+
+/* 搜索结果区域 */
+#local-search .search-result-list,
+.search-results,
+#algolia-hits {
+  background: transparent !important;
+  max-height: 60vh !important;
+  overflow-y: auto !important;
+}
+
+/* 搜索结果项 */
+#local-search .search-result-list .search-result-item,
+.search-result,
+.algolia-hit-item {
+  background: rgba(255, 255, 255, 0.4) !important;
+  border: none !important;
+  border-bottom: 1px solid var(--wz-border) !important;
+  border-radius: 0 !important;
+  padding: 16px 20px !important;
+  margin: 0 !important;
+  transition: all 0.2s ease !important;
+}
+
+#local-search .search-result-list .search-result-item:hover,
+.search-result:hover,
+.algolia-hit-item:hover {
+  background: rgba(255, 255, 255, 0.7) !important;
+}
+
+#local-search .search-result-list .search-result-item:last-child,
+.search-result:last-child {
+  border-bottom: none !important;
+}
+
+/* 搜索结果标题 */
+#local-search .search-result-title,
+.search-result-title,
+.algolia-hit-item-title {
+  color: var(--wz-text-primary) !important;
+  font-family: var(--wz-font-cn) !important;
+  font-weight: 500 !important;
+  font-size: 1rem !important;
+  margin-bottom: 6px !important;
+}
+
+/* 关键词高亮 - 朱砂红 */
+#local-search .search-keyword,
+.search-result mark,
+.search-keyword,
+em.search-keyword,
+.algolia-hit-item mark {
+  color: var(--wz-accent-red) !important;
+  background: rgba(185, 28, 28, 0.1) !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+  padding: 1px 4px !important;
+  border-radius: 2px !important;
+}
+
+/* 搜索结果内容预览 */
+#local-search .search-result-content,
+.search-result-content,
+.algolia-hit-item-content {
+  color: var(--wz-text-secondary) !important;
+  font-size: 0.9rem !important;
+  line-height: 1.6 !important;
+}
+
+/* 关闭按钮 */
+#local-search .search-close-button,
+.search-dialog .search-close-button,
+#algolia-search .search-close-button {
+  color: var(--wz-text-secondary) !important;
+  transition: color 0.2s ease !important;
+}
+
+#local-search .search-close-button:hover,
+.search-dialog .search-close-button:hover,
+#algolia-search .search-close-button:hover {
+  color: var(--wz-accent-red) !important;
+}
+
+/* 无结果提示 */
+#local-search .search-result-list .no-result,
+.search-no-result {
+  color: var(--wz-text-secondary) !important;
+  text-align: center !important;
+  padding: 40px 20px !important;
+  font-family: var(--wz-font-cn) !important;
+}
+
+/* 搜索图标 */
+#local-search .search-input-icon,
+.search-icon {
+  color: var(--wz-text-secondary) !important;
+}
+
+/* ===== 极简线条 - TOC目录优化 ===== */
+/* 目录容器 */
+#card-toc,
+.toc-content {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* 目录列表 */
+#card-toc .toc-content,
+.toc-content .toc {
+  border-left: 1px solid var(--wz-border) !important;
+  padding-left: 0 !important;
+  margin-left: 10px !important;
+}
+
+/* 目录项 */
+#card-toc .toc-link,
+.toc-content .toc-link,
+.toc-link {
+  display: block !important;
+  color: var(--wz-text-secondary) !important;
+  font-family: var(--wz-font-cn) !important;
+  font-size: 0.9rem !important;
+  line-height: 1.8 !important;
+  padding: 6px 0 6px 20px !important;
+  margin-left: -1px !important;
+  border-left: 2px solid transparent !important;
+  transition: all 0.2s ease !important;
+  text-decoration: none !important;
+  position: relative !important;
+}
+
+#card-toc .toc-link:hover,
+.toc-content .toc-link:hover,
+.toc-link:hover {
+  color: var(--wz-text-primary) !important;
+}
+
+/* 当前激活项 - 朱砂红书签 */
+#card-toc .toc-link.active,
+.toc-content .toc-link.active,
+.toc-link.active {
+  color: var(--wz-accent-red) !important;
+  font-weight: 500 !important;
+  border-left-color: var(--wz-accent-red) !important;
+  background: linear-gradient(90deg, rgba(185, 28, 28, 0.08) 0%, transparent 100%) !important;
+}
+
+/* 书签指示器 */
+#card-toc .toc-link.active::before,
+.toc-content .toc-link.active::before,
+.toc-link.active::before {
+  content: '' !important;
+  position: absolute !important;
+  left: -5px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 8px !important;
+  height: 8px !important;
+  background: var(--wz-accent-red) !important;
+  border-radius: 50% !important;
+  box-shadow: 0 0 6px rgba(185, 28, 28, 0.4) !important;
+}
+
+/* 子目录缩进 */
+#card-toc .toc-child,
+.toc-content .toc-child {
+  margin-left: 12px !important;
+}
+
+/* 目录层级样式 */
+.toc-content .toc > .toc-item > .toc-link {
+  font-weight: 500 !important;
+}
+
+.toc-content .toc-child .toc-link {
+  font-size: 0.85rem !important;
+  color: rgba(100, 116, 139, 0.9) !important;
+}
+
+.toc-content .toc-child .toc-link.active {
+  color: var(--wz-accent-red) !important;
+}
+
+/* 目录标题 */
+#card-toc .item-headline,
+.toc-content .toc-title {
+  font-family: var(--wz-font-cn) !important;
+  color: var(--wz-text-primary) !important;
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.05em !important;
+  padding-bottom: 12px !important;
+  margin-bottom: 8px !important;
+  border-bottom: 1px solid var(--wz-border) !important;
+}
+
+/* 滚动百分比 */
+#card-toc .toc-percentage,
+.toc-percentage {
+  color: var(--wz-accent-red) !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+}
+
+/* 编号样式 */
+#card-toc .toc-number,
+.toc-number {
+  color: var(--wz-text-secondary) !important;
+  margin-right: 6px !important;
+  font-size: 0.85em !important;
+}
+
+/* 暗色模式适配 */
+[data-theme="dark"] #local-search .search-dialog,
+[data-theme="dark"] .search-dialog__body,
+[data-theme="dark"] #algolia-search .search-dialog {
+  background: rgba(30, 41, 59, 0.96) !important;
+  border-color: rgba(71, 85, 105, 0.3) !important;
+}
+
+[data-theme="dark"] #local-search-input input,
+[data-theme="dark"] .search-input {
+  background: rgba(51, 65, 85, 0.6) !important;
+  border-color: rgba(71, 85, 105, 0.5) !important;
+  color: #e2e8f0 !important;
+}
+
+[data-theme="dark"] #local-search .search-result-list .search-result-item,
+[data-theme="dark"] .search-result {
+  background: rgba(51, 65, 85, 0.4) !important;
+}
+
+[data-theme="dark"] #local-search .search-result-list .search-result-item:hover,
+[data-theme="dark"] .search-result:hover {
+  background: rgba(51, 65, 85, 0.7) !important;
+}
+
+[data-theme="dark"] #card-toc .toc-link.active,
+[data-theme="dark"] .toc-link.active {
+  background: linear-gradient(90deg, rgba(185, 28, 28, 0.15) 0%, transparent 100%) !important;
+}
