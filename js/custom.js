@@ -7,6 +7,63 @@
   'use strict';
 
   /* ========================================
+   * 朱砂流痕 - 阅读进度条
+   * ======================================== */
+  function initReadingProgress() {
+    // 创建进度条元素
+    const progressBar = document.createElement('div');
+    progressBar.id = 'reading-progress';
+    document.body.appendChild(progressBar);
+    
+    // 监听滚动更新进度
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressBar.style.width = progress + '%';
+    }, { passive: true });
+    
+    console.log('[Progress] 朱砂流痕进度条已启用');
+  }
+
+  /* ========================================
+   * 今日诗词 - 页脚诗词
+   * ======================================== */
+  function initFooterPoetry() {
+    const footer = document.getElementById('footer');
+    if (!footer) return;
+    
+    // 创建诗词容器
+    const poetryDiv = document.createElement('div');
+    poetryDiv.className = 'footer-poetry';
+    poetryDiv.innerHTML = '<div class="poetry-content">...</div>';
+    
+    // 插入到footer开头
+    footer.insertBefore(poetryDiv, footer.firstChild);
+    
+    // 加载今日诗词SDK
+    const script = document.createElement('script');
+    script.src = 'https://sdk.jinrishici.com/v2/browser/jinrishici.js';
+    script.charset = 'utf-8';
+    script.onload = () => {
+      if (window.jinrishici) {
+        window.jinrishici.load((result) => {
+          if (result.status === 'success') {
+            const data = result.data;
+            poetryDiv.innerHTML = `
+              <div class="poetry-content">${data.content}</div>
+              <div class="poetry-origin">——${data.origin.author}《${data.origin.title}》</div>
+            `;
+          }
+        });
+      }
+    };
+    document.head.appendChild(script);
+    
+    console.log('[Poetry] 今日诗词已加载');
+  }
+
+  /* ========================================
    * 深夜提灯 - 鼠标光照效果
    * ======================================== */
   function initLanternEffect() {
@@ -483,6 +540,8 @@
   function init() {
     initSnow();
     initLanternEffect();
+    initReadingProgress();
+    initFooterPoetry();
     // 多次尝试创建天气卡片，确保DOM完全加载
     createWeatherHero();
     setTimeout(createWeatherHero, 300);

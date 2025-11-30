@@ -1443,3 +1443,77 @@ figure.highlight {
   transform: scale(1.02);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
 }
+
+/* ===== 朱砂流痕 - 滚动条美化 ===== */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* Firefox 滚动条 */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #475569 transparent;
+}
+
+/* ===== 朱砂流痕 - 顶部阅读进度条 ===== */
+#reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--wz-accent-red), #dc2626);
+  z-index: 99999;
+  transition: width 0.1s ease-out;
+  box-shadow: 0 0 8px rgba(185, 28, 28, 0.5);
+}
+
+/* ===== 今日诗词 - 页脚样式 ===== */
+.footer-poetry {
+  text-align: center;
+  padding: 30px 20px 20px;
+  font-family: var(--wz-font-cn) !important;
+}
+
+.footer-poetry .poetry-content {
+  font-size: 1.1rem;
+  color: rgba(148, 163, 184, 0.9);
+  letter-spacing: 0.15em;
+  line-height: 2;
+  opacity: 0;
+  animation: poetryFadeIn 1.5s ease forwards;
+  animation-delay: 0.5s;
+}
+
+.footer-poetry .poetry-origin {
+  font-size: 0.85rem;
+  color: rgba(100, 116, 139, 0.7);
+  margin-top: 10px;
+  font-style: italic;
+}
+
+@keyframes poetryFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
