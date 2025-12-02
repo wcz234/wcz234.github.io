@@ -1,117 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Git工作流最佳实践 - 从入门到精通</title>
-    <url>/2025/11/18/git-workflow-best-practices/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Git是现代软件开发必备的版本控制工具。但很多人只会基础的 <code>add</code>、<code>commit</code>、<code>push</code>，遇到复杂场景就懵了。</p>
-<p>今天老王给大家系统讲讲Git的最佳实践！</p>
-<span id="more"></span>
-
-<h2 id="一、分支策略"><a href="#一、分支策略" class="headerlink" title="一、分支策略"></a>一、分支策略</h2><h3 id="Git-Flow"><a href="#Git-Flow" class="headerlink" title="Git Flow"></a>Git Flow</h3><p>经典的分支模型，适合有明确发布周期的项目：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">main (master)     ← 生产环境</span><br><span class="line">  └── develop     ← 开发分支</span><br><span class="line">       ├── feature/xxx  ← 功能分支</span><br><span class="line">       ├── release/xxx  ← 发布分支</span><br><span class="line">       └── hotfix/xxx   ← 热修复分支</span><br></pre></td></tr></table></figure>
-
-<h3 id="GitHub-Flow"><a href="#GitHub-Flow" class="headerlink" title="GitHub Flow"></a>GitHub Flow</h3><p>更简洁的模型，适合持续部署：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">main</span><br><span class="line">  └── feature/xxx  ← 所有开发都从main分出</span><br></pre></td></tr></table></figure>
-
-<h3 id="分支命名规范"><a href="#分支命名规范" class="headerlink" title="分支命名规范"></a>分支命名规范</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 功能分支</span></span><br><span class="line">feature/user-login</span><br><span class="line">feature/shopping-cart</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修复分支</span></span><br><span class="line">fix/login-bug</span><br><span class="line">fix/cart-calculation</span><br><span class="line"></span><br><span class="line"><span class="comment"># 热修复</span></span><br><span class="line">hotfix/security-patch</span><br><span class="line"></span><br><span class="line"><span class="comment"># 发布分支</span></span><br><span class="line">release/v1.2.0</span><br></pre></td></tr></table></figure>
-
-<h2 id="二、提交规范"><a href="#二、提交规范" class="headerlink" title="二、提交规范"></a>二、提交规范</h2><h3 id="Conventional-Commits"><a href="#Conventional-Commits" class="headerlink" title="Conventional Commits"></a>Conventional Commits</h3><p>推荐使用约定式提交：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;footer&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="常用type"><a href="#常用type" class="headerlink" title="常用type"></a>常用type</h3><table>
-<thead>
-<tr>
-<th>Type</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>feat</td>
-<td>新功能</td>
-</tr>
-<tr>
-<td>fix</td>
-<td>修复bug</td>
-</tr>
-<tr>
-<td>docs</td>
-<td>文档更新</td>
-</tr>
-<tr>
-<td>style</td>
-<td>代码格式（不影响功能）</td>
-</tr>
-<tr>
-<td>refactor</td>
-<td>重构</td>
-</tr>
-<tr>
-<td>perf</td>
-<td>性能优化</td>
-</tr>
-<tr>
-<td>test</td>
-<td>测试相关</td>
-</tr>
-<tr>
-<td>chore</td>
-<td>构建&#x2F;工具相关</td>
-</tr>
-</tbody></table>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 好的提交信息</span></span><br><span class="line">git commit -m <span class="string">&quot;feat(auth): 添加微信登录功能&quot;</span></span><br><span class="line">git commit -m <span class="string">&quot;fix(cart): 修复购物车金额计算错误&quot;</span></span><br><span class="line">git commit -m <span class="string">&quot;docs: 更新API文档&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 不好的提交信息</span></span><br><span class="line">git commit -m <span class="string">&quot;update&quot;</span></span><br><span class="line">git commit -m <span class="string">&quot;fix bug&quot;</span></span><br><span class="line">git commit -m <span class="string">&quot;...&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="三、常用命令"><a href="#三、常用命令" class="headerlink" title="三、常用命令"></a>三、常用命令</h2><h3 id="撤销操作"><a href="#撤销操作" class="headerlink" title="撤销操作"></a>撤销操作</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 撤销工作区修改</span></span><br><span class="line">git checkout -- &lt;file&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 撤销暂存区</span></span><br><span class="line">git reset HEAD &lt;file&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 撤销最近一次提交（保留修改）</span></span><br><span class="line">git reset --soft HEAD~1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 撤销最近一次提交（丢弃修改）</span></span><br><span class="line">git reset --hard HEAD~1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改最近一次提交信息</span></span><br><span class="line">git commit --amend -m <span class="string">&quot;新的提交信息&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建并切换分支</span></span><br><span class="line">git checkout -b feature/xxx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 合并分支（保留提交历史）</span></span><br><span class="line">git merge --no-ff feature/xxx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 变基（线性历史）</span></span><br><span class="line">git rebase main</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除分支</span></span><br><span class="line">git branch -d feature/xxx       <span class="comment"># 本地</span></span><br><span class="line">git push origin --delete feature/xxx  <span class="comment"># 远程</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="暂存操作"><a href="#暂存操作" class="headerlink" title="暂存操作"></a>暂存操作</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 暂存当前修改</span></span><br><span class="line">git stash</span><br><span class="line"></span><br><span class="line"><span class="comment"># 暂存并添加描述</span></span><br><span class="line">git stash save <span class="string">&quot;正在开发登录功能&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看暂存列表</span></span><br><span class="line">git stash list</span><br><span class="line"></span><br><span class="line"><span class="comment"># 恢复暂存</span></span><br><span class="line">git stash pop        <span class="comment"># 恢复并删除</span></span><br><span class="line">git stash apply      <span class="comment"># 恢复但保留</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除暂存</span></span><br><span class="line">git stash drop stash@&#123;0&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="四、协作流程"><a href="#四、协作流程" class="headerlink" title="四、协作流程"></a>四、协作流程</h2><h3 id="Pull-Request流程"><a href="#Pull-Request流程" class="headerlink" title="Pull Request流程"></a>Pull Request流程</h3><ol>
-<li>Fork或Clone仓库</li>
-<li>创建功能分支</li>
-<li>开发并提交</li>
-<li>推送到远程</li>
-<li>创建Pull Request</li>
-<li>Code Review</li>
-<li>合并到主分支</li>
-</ol>
-<h3 id="Code-Review要点"><a href="#Code-Review要点" class="headerlink" title="Code Review要点"></a>Code Review要点</h3><ul>
-<li><input disabled="" type="checkbox"> 代码逻辑是否正确</li>
-<li><input disabled="" type="checkbox"> 是否有潜在bug</li>
-<li><input disabled="" type="checkbox"> 代码风格是否一致</li>
-<li><input disabled="" type="checkbox"> 是否有单元测试</li>
-<li><input disabled="" type="checkbox"> 文档是否更新</li>
-</ul>
-<h2 id="五、实用技巧"><a href="#五、实用技巧" class="headerlink" title="五、实用技巧"></a>五、实用技巧</h2><h3 id="1-交互式rebase"><a href="#1-交互式rebase" class="headerlink" title="1. 交互式rebase"></a>1. 交互式rebase</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git rebase -i HEAD~3</span><br></pre></td></tr></table></figure>
-
-<p>可以：</p>
-<ul>
-<li>合并多个提交（squash）</li>
-<li>修改提交信息（reword）</li>
-<li>删除提交（drop）</li>
-<li>重排提交顺序</li>
-</ul>
-<h3 id="2-查看文件历史"><a href="#2-查看文件历史" class="headerlink" title="2. 查看文件历史"></a>2. 查看文件历史</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看文件的修改历史</span></span><br><span class="line">git <span class="built_in">log</span> --follow -p -- &lt;file&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看某行代码是谁写的</span></span><br><span class="line">git blame &lt;file&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-搜索提交"><a href="#3-搜索提交" class="headerlink" title="3. 搜索提交"></a>3. 搜索提交</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 搜索提交信息</span></span><br><span class="line">git <span class="built_in">log</span> --grep=<span class="string">&quot;登录&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 搜索代码变更</span></span><br><span class="line">git <span class="built_in">log</span> -S <span class="string">&quot;function login&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Git的强大之处在于它的灵活性，但这也意味着需要制定规范才能高效协作。希望这篇文章能帮助你建立良好的Git使用习惯！</p>
-<hr>
-<blockquote>
-<p>记住：好的提交历史是项目的宝贵财富！</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>开发工具</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-        <tag>版本控制</tag>
-        <tag>开发工具</tag>
-        <tag>最佳实践</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>搭建个人博客完整指南 - Hexo + Butterfly主题</title>
     <url>/2025/11/15/hexo-butterfly-blog-guide/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>拥有一个个人博客是每个程序员的标配。今天我来分享如何从零搭建一个像本站一样精美的个人博客！</p>
@@ -332,6 +221,117 @@
         <tag>前端</tag>
         <tag>UI设计</tag>
         <tag>Apple风格</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git工作流最佳实践 - 从入门到精通</title>
+    <url>/2025/11/18/git-workflow-best-practices/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Git是现代软件开发必备的版本控制工具。但很多人只会基础的 <code>add</code>、<code>commit</code>、<code>push</code>，遇到复杂场景就懵了。</p>
+<p>今天老王给大家系统讲讲Git的最佳实践！</p>
+<span id="more"></span>
+
+<h2 id="一、分支策略"><a href="#一、分支策略" class="headerlink" title="一、分支策略"></a>一、分支策略</h2><h3 id="Git-Flow"><a href="#Git-Flow" class="headerlink" title="Git Flow"></a>Git Flow</h3><p>经典的分支模型，适合有明确发布周期的项目：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">main (master)     ← 生产环境</span><br><span class="line">  └── develop     ← 开发分支</span><br><span class="line">       ├── feature/xxx  ← 功能分支</span><br><span class="line">       ├── release/xxx  ← 发布分支</span><br><span class="line">       └── hotfix/xxx   ← 热修复分支</span><br></pre></td></tr></table></figure>
+
+<h3 id="GitHub-Flow"><a href="#GitHub-Flow" class="headerlink" title="GitHub Flow"></a>GitHub Flow</h3><p>更简洁的模型，适合持续部署：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">main</span><br><span class="line">  └── feature/xxx  ← 所有开发都从main分出</span><br></pre></td></tr></table></figure>
+
+<h3 id="分支命名规范"><a href="#分支命名规范" class="headerlink" title="分支命名规范"></a>分支命名规范</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 功能分支</span></span><br><span class="line">feature/user-login</span><br><span class="line">feature/shopping-cart</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修复分支</span></span><br><span class="line">fix/login-bug</span><br><span class="line">fix/cart-calculation</span><br><span class="line"></span><br><span class="line"><span class="comment"># 热修复</span></span><br><span class="line">hotfix/security-patch</span><br><span class="line"></span><br><span class="line"><span class="comment"># 发布分支</span></span><br><span class="line">release/v1.2.0</span><br></pre></td></tr></table></figure>
+
+<h2 id="二、提交规范"><a href="#二、提交规范" class="headerlink" title="二、提交规范"></a>二、提交规范</h2><h3 id="Conventional-Commits"><a href="#Conventional-Commits" class="headerlink" title="Conventional Commits"></a>Conventional Commits</h3><p>推荐使用约定式提交：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;footer&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="常用type"><a href="#常用type" class="headerlink" title="常用type"></a>常用type</h3><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>feat</td>
+<td>新功能</td>
+</tr>
+<tr>
+<td>fix</td>
+<td>修复bug</td>
+</tr>
+<tr>
+<td>docs</td>
+<td>文档更新</td>
+</tr>
+<tr>
+<td>style</td>
+<td>代码格式（不影响功能）</td>
+</tr>
+<tr>
+<td>refactor</td>
+<td>重构</td>
+</tr>
+<tr>
+<td>perf</td>
+<td>性能优化</td>
+</tr>
+<tr>
+<td>test</td>
+<td>测试相关</td>
+</tr>
+<tr>
+<td>chore</td>
+<td>构建&#x2F;工具相关</td>
+</tr>
+</tbody></table>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 好的提交信息</span></span><br><span class="line">git commit -m <span class="string">&quot;feat(auth): 添加微信登录功能&quot;</span></span><br><span class="line">git commit -m <span class="string">&quot;fix(cart): 修复购物车金额计算错误&quot;</span></span><br><span class="line">git commit -m <span class="string">&quot;docs: 更新API文档&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 不好的提交信息</span></span><br><span class="line">git commit -m <span class="string">&quot;update&quot;</span></span><br><span class="line">git commit -m <span class="string">&quot;fix bug&quot;</span></span><br><span class="line">git commit -m <span class="string">&quot;...&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="三、常用命令"><a href="#三、常用命令" class="headerlink" title="三、常用命令"></a>三、常用命令</h2><h3 id="撤销操作"><a href="#撤销操作" class="headerlink" title="撤销操作"></a>撤销操作</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 撤销工作区修改</span></span><br><span class="line">git checkout -- &lt;file&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 撤销暂存区</span></span><br><span class="line">git reset HEAD &lt;file&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 撤销最近一次提交（保留修改）</span></span><br><span class="line">git reset --soft HEAD~1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 撤销最近一次提交（丢弃修改）</span></span><br><span class="line">git reset --hard HEAD~1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改最近一次提交信息</span></span><br><span class="line">git commit --amend -m <span class="string">&quot;新的提交信息&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建并切换分支</span></span><br><span class="line">git checkout -b feature/xxx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 合并分支（保留提交历史）</span></span><br><span class="line">git merge --no-ff feature/xxx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 变基（线性历史）</span></span><br><span class="line">git rebase main</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除分支</span></span><br><span class="line">git branch -d feature/xxx       <span class="comment"># 本地</span></span><br><span class="line">git push origin --delete feature/xxx  <span class="comment"># 远程</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="暂存操作"><a href="#暂存操作" class="headerlink" title="暂存操作"></a>暂存操作</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 暂存当前修改</span></span><br><span class="line">git stash</span><br><span class="line"></span><br><span class="line"><span class="comment"># 暂存并添加描述</span></span><br><span class="line">git stash save <span class="string">&quot;正在开发登录功能&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看暂存列表</span></span><br><span class="line">git stash list</span><br><span class="line"></span><br><span class="line"><span class="comment"># 恢复暂存</span></span><br><span class="line">git stash pop        <span class="comment"># 恢复并删除</span></span><br><span class="line">git stash apply      <span class="comment"># 恢复但保留</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除暂存</span></span><br><span class="line">git stash drop stash@&#123;0&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、协作流程"><a href="#四、协作流程" class="headerlink" title="四、协作流程"></a>四、协作流程</h2><h3 id="Pull-Request流程"><a href="#Pull-Request流程" class="headerlink" title="Pull Request流程"></a>Pull Request流程</h3><ol>
+<li>Fork或Clone仓库</li>
+<li>创建功能分支</li>
+<li>开发并提交</li>
+<li>推送到远程</li>
+<li>创建Pull Request</li>
+<li>Code Review</li>
+<li>合并到主分支</li>
+</ol>
+<h3 id="Code-Review要点"><a href="#Code-Review要点" class="headerlink" title="Code Review要点"></a>Code Review要点</h3><ul>
+<li><input disabled="" type="checkbox"> 代码逻辑是否正确</li>
+<li><input disabled="" type="checkbox"> 是否有潜在bug</li>
+<li><input disabled="" type="checkbox"> 代码风格是否一致</li>
+<li><input disabled="" type="checkbox"> 是否有单元测试</li>
+<li><input disabled="" type="checkbox"> 文档是否更新</li>
+</ul>
+<h2 id="五、实用技巧"><a href="#五、实用技巧" class="headerlink" title="五、实用技巧"></a>五、实用技巧</h2><h3 id="1-交互式rebase"><a href="#1-交互式rebase" class="headerlink" title="1. 交互式rebase"></a>1. 交互式rebase</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git rebase -i HEAD~3</span><br></pre></td></tr></table></figure>
+
+<p>可以：</p>
+<ul>
+<li>合并多个提交（squash）</li>
+<li>修改提交信息（reword）</li>
+<li>删除提交（drop）</li>
+<li>重排提交顺序</li>
+</ul>
+<h3 id="2-查看文件历史"><a href="#2-查看文件历史" class="headerlink" title="2. 查看文件历史"></a>2. 查看文件历史</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看文件的修改历史</span></span><br><span class="line">git <span class="built_in">log</span> --follow -p -- &lt;file&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看某行代码是谁写的</span></span><br><span class="line">git blame &lt;file&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-搜索提交"><a href="#3-搜索提交" class="headerlink" title="3. 搜索提交"></a>3. 搜索提交</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 搜索提交信息</span></span><br><span class="line">git <span class="built_in">log</span> --grep=<span class="string">&quot;登录&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 搜索代码变更</span></span><br><span class="line">git <span class="built_in">log</span> -S <span class="string">&quot;function login&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Git的强大之处在于它的灵活性，但这也意味着需要制定规范才能高效协作。希望这篇文章能帮助你建立良好的Git使用习惯！</p>
+<hr>
+<blockquote>
+<p>记住：好的提交历史是项目的宝贵财富！</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>开发工具</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+        <tag>版本控制</tag>
+        <tag>开发工具</tag>
+        <tag>最佳实践</tag>
       </tags>
   </entry>
 </search>

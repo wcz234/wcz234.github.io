@@ -537,11 +537,112 @@
    * 第三部分：初始化
    * ======================================== */
 
+  /* ========================================
+   * 听雪 - 微型背景音乐组件
+   * 窗外风雪的声音开关
+   * ======================================== */
+  
+  const SNOW_PLAYER_CONFIG = {
+    // 默认音乐源 - 免版权白噪音/轻音乐
+    // 可替换为自己的MP3链接
+    musicSrc: 'https://cdn.pixabay.com/audio/2022/01/18/audio_d0a13f69d2.mp3',
+    defaultVolume: 0.4,
+    fadeInDuration: 2000
+  };
+
+  let snowAudio = null;
+  let isSnowPlaying = false;
+
+  function createSnowPlayer() {
+    // 避免重复创建
+    if (document.querySelector('.snow-player')) return;
+
+    // 创建音频元素
+    snowAudio = document.createElement('audio');
+    snowAudio.id = 'snow-audio';
+    snowAudio.src = SNOW_PLAYER_CONFIG.musicSrc;
+    snowAudio.loop = true;
+    snowAudio.volume = 0;
+    snowAudio.preload = 'auto';
+    document.body.appendChild(snowAudio);
+
+    // 创建播放器UI
+    const playerHTML = `
+      <div class="snow-player" id="snow-player">
+        <button class="snow-player-btn" aria-label="播放/暂停背景音乐" title="听雪">
+          <span class="snow-player-icon">❄</span>
+        </button>
+        <span class="snow-player-tip">听雪</span>
+      </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', playerHTML);
+
+    // 绑定点击事件
+    const playerEl = document.getElementById('snow-player');
+    const playerBtn = playerEl.querySelector('.snow-player-btn');
+    
+    playerBtn.addEventListener('click', toggleSnowMusic);
+
+    console.log('[SnowPlayer] 听雪播放器已加载');
+  }
+
+  function toggleSnowMusic() {
+    const playerEl = document.getElementById('snow-player');
+    
+    if (isSnowPlaying) {
+      // 淡出暂停
+      fadeAudio(snowAudio, 0, 500, () => {
+        snowAudio.pause();
+      });
+      playerEl.classList.remove('playing');
+      isSnowPlaying = false;
+      console.log('[SnowPlayer] 暂停');
+    } else {
+      // 淡入播放
+      snowAudio.play().then(() => {
+        fadeAudio(snowAudio, SNOW_PLAYER_CONFIG.defaultVolume, SNOW_PLAYER_CONFIG.fadeInDuration);
+        playerEl.classList.add('playing');
+        isSnowPlaying = true;
+        console.log('[SnowPlayer] 播放');
+      }).catch(err => {
+        console.log('[SnowPlayer] 播放失败，需要用户交互:', err.message);
+      });
+    }
+  }
+
+  // 音量淡入淡出
+  function fadeAudio(audio, targetVolume, duration, callback) {
+    const startVolume = audio.volume;
+    const volumeDiff = targetVolume - startVolume;
+    const steps = 30;
+    const stepTime = duration / steps;
+    let currentStep = 0;
+
+    const fade = setInterval(() => {
+      currentStep++;
+      const progress = currentStep / steps;
+      // easeOutQuad
+      const eased = 1 - (1 - progress) * (1 - progress);
+      audio.volume = Math.max(0, Math.min(1, startVolume + volumeDiff * eased));
+      
+      if (currentStep >= steps) {
+        clearInterval(fade);
+        audio.volume = targetVolume;
+        if (callback) callback();
+      }
+    }, stepTime);
+  }
+
+  function initSnowPlayer() {
+    createSnowPlayer();
+  }
+
   function init() {
     initSnow();
     initLanternEffect();
     initReadingProgress();
     initFooterPoetry();
+    initSnowPlayer();
     // 多次尝试创建天气卡片，确保DOM完全加载
     createWeatherHero();
     setTimeout(createWeatherHero, 300);
